@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1c5ecc0f-185e-4ba0-8385-ca4fec94dec6" name="GPLinker">
+        <fileTransfer accessType="SFTP" host="180.169.131.147" port="22" sshConfigId="03272ad8-3c65-4cd1-95f0-0886d605abb3" sshConfig="bureaux@180.169.131.147:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

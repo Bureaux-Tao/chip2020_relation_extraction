@@ -1,0 +1,677 @@
+ssh://bureaux@180.169.131.147:22/home/bureaux/miniconda3/envs/Keras-base/bin/python -u /home/bureaux/Projects/GPLinker/train.py
+Using TensorFlow backend.
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:4185: The name tf.truncated_normal is deprecated. Please use tf.random.truncated_normal instead.
+
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:131: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:133: The name tf.placeholder_with_default is deprecated. Please use tf.compat.v1.placeholder_with_default instead.
+
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:3445: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:174: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+2022-02-15 12:03:42.528410: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2022-02-15 12:03:42.537884: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
+2022-02-15 12:03:43.043222: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x563844f3dcd0 executing computations on platform CUDA. Devices:
+2022-02-15 12:03:43.043279: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Graphics Device, Compute Capability 7.0
+2022-02-15 12:03:43.046544: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2400000000 Hz
+2022-02-15 12:03:43.048969: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x56384507eac0 executing computations on platform Host. Devices:
+2022-02-15 12:03:43.049001: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+2022-02-15 12:03:43.050063: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties:
+name: Graphics Device major: 7 minor: 0 memoryClockRate(GHz): 1.597
+pciBusID: 0000:3b:00.0
+2022-02-15 12:03:43.050360: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2022-02-15 12:03:43.051745: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2022-02-15 12:03:43.053067: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0
+2022-02-15 12:03:43.053371: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0
+2022-02-15 12:03:43.055199: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0
+2022-02-15 12:03:43.056645: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0
+2022-02-15 12:03:43.060829: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2022-02-15 12:03:43.062667: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0
+2022-02-15 12:03:43.062713: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2022-02-15 12:03:43.064126: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-02-15 12:03:43.064151: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      0
+2022-02-15 12:03:43.064184: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 0:   N
+2022-02-15 12:03:43.066370: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30458 MB memory) -> physical GPU (device: 0, name: Graphics Device, pci bus id: 0000:3b:00.0, compute capability: 7.0)
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py:2403: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+Input-Token (InputLayer)        (None, None)         0
+__________________________________________________________________________________________________
+Input-Segment (InputLayer)      (None, None)         0
+__________________________________________________________________________________________________
+Embedding-Token (Embedding)     (None, None, 384)    4608000     Input-Token[0][0]
+__________________________________________________________________________________________________
+Embedding-Segment (Embedding)   (None, None, 384)    768         Input-Segment[0][0]
+__________________________________________________________________________________________________
+Embedding-Token-Segment (Add)   (None, None, 384)    0           Embedding-Token[0][0]
+                                                                 Embedding-Segment[0][0]
+__________________________________________________________________________________________________
+Embedding-Norm (LayerNormalizat (None, None, 384)    768         Embedding-Token-Segment[0][0]
+__________________________________________________________________________________________________
+Embedding-Dropout (Dropout)     (None, None, 384)    0           Embedding-Norm[0][0]
+__________________________________________________________________________________________________
+Embedding-Rotary-Position (Sinu (None, None, 64)     0           Embedding-Dropout[0][0]
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    591360      Embedding-Dropout[0][0]
+                                                                 Embedding-Dropout[0][0]
+                                                                 Embedding-Dropout[0][0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    0           Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    0           Embedding-Dropout[0][0]
+                                                                 Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    768         Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-FeedForward (Feed (None, None, 384)    1181568     Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Dropo (None, None, 384)    0           Transformer-0-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Add ( (None, None, 384)    0           Transformer-0-MultiHeadSelfAttent
+                                                                 Transformer-0-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Norm  (None, None, 384)    768         Transformer-0-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-0-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    0           Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    0           Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    768         Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-FeedForward (Feed (None, None, 384)    1181568     Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Dropo (None, None, 384)    0           Transformer-1-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Add ( (None, None, 384)    0           Transformer-1-MultiHeadSelfAttent
+                                                                 Transformer-1-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Norm  (None, None, 384)    768         Transformer-1-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-1-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    0           Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    0           Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    768         Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-FeedForward (Feed (None, None, 384)    1181568     Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Dropo (None, None, 384)    0           Transformer-2-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Add ( (None, None, 384)    0           Transformer-2-MultiHeadSelfAttent
+                                                                 Transformer-2-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Norm  (None, None, 384)    768         Transformer-2-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-2-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    0           Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    0           Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    768         Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-FeedForward (Feed (None, None, 384)    1181568     Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Dropo (None, None, 384)    0           Transformer-3-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Add ( (None, None, 384)    0           Transformer-3-MultiHeadSelfAttent
+                                                                 Transformer-3-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Norm  (None, None, 384)    768         Transformer-3-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-3-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    0           Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    0           Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    768         Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-FeedForward (Feed (None, None, 384)    1181568     Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Dropo (None, None, 384)    0           Transformer-4-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Add ( (None, None, 384)    0           Transformer-4-MultiHeadSelfAttent
+                                                                 Transformer-4-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Norm  (None, None, 384)    768         Transformer-4-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-4-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    0           Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    0           Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    768         Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-FeedForward (Feed (None, None, 384)    1181568     Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Dropo (None, None, 384)    0           Transformer-5-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Add ( (None, None, 384)    0           Transformer-5-MultiHeadSelfAttent
+                                                                 Transformer-5-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Norm  (None, None, 384)    768         Transformer-5-FeedForward-Add[0][
+__________________________________________________________________________________________________
+global_pointer_1 (GlobalPointer (None, 2, None, None 98560       Transformer-5-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+global_pointer_2 (GlobalPointer (None, 53, None, Non 2611840     Transformer-5-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+global_pointer_3 (GlobalPointer (None, 53, None, Non 2611840     Transformer-5-FeedForward-Norm[0]
+==================================================================================================
+Total params: 20,578,560
+Trainable params: 20,578,560
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/200
+2022-02-15 12:04:07.033710: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+225/225 [==============================] - 227s 1s/step - loss: 112.4597 - global_pointer_1_loss: 13.2782 - global_pointer_2_loss: 49.8768 - global_pointer_3_loss: 49.3047
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [01:16, 46.79it/s]
+best f1: 0.00000
+
+Epoch 2/200
+225/225 [==============================] - 218s 969ms/step - loss: 29.6088 - global_pointer_1_loss: 6.5737 - global_pointer_2_loss: 11.5964 - global_pointer_3_loss: 11.4388
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [01:13, 48.56it/s]
+best f1: 0.00000
+
+Epoch 3/200
+225/225 [==============================] - 221s 984ms/step - loss: 22.2729 - global_pointer_1_loss: 5.5311 - global_pointer_2_loss: 8.4583 - global_pointer_3_loss: 8.2836
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [01:15, 47.57it/s]
+best f1: 0.00000
+
+Epoch 4/200
+225/225 [==============================] - 222s 986ms/step - loss: 19.4617 - global_pointer_1_loss: 5.0280 - global_pointer_2_loss: 7.2974 - global_pointer_3_loss: 7.1363
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [01:14, 47.91it/s]
+best f1: 0.00000
+
+Epoch 5/200
+225/225 [==============================] - 223s 990ms/step - loss: 17.7338 - global_pointer_1_loss: 4.7220 - global_pointer_2_loss: 6.5951 - global_pointer_3_loss: 6.4167
+f1: 0.06133, precision: 0.89390, recall: 0.03175: : 3585it [01:15, 47.37it/s]
+best f1: 0.06133
+
+Epoch 6/200
+225/225 [==============================] - 221s 980ms/step - loss: 16.3689 - global_pointer_1_loss: 4.4224 - global_pointer_2_loss: 6.0536 - global_pointer_3_loss: 5.8929
+f1: 0.22094, precision: 0.75288, recall: 0.12946: : 3585it [01:15, 47.63it/s]
+best f1: 0.22094
+
+Epoch 7/200
+225/225 [==============================] - 217s 966ms/step - loss: 15.3846 - global_pointer_1_loss: 4.1912 - global_pointer_2_loss: 5.6585 - global_pointer_3_loss: 5.5350
+f1: 0.32491, precision: 0.69411, recall: 0.21210: : 3585it [01:15, 47.67it/s]
+best f1: 0.32491
+
+Epoch 8/200
+225/225 [==============================] - 226s 1s/step - loss: 14.4352 - global_pointer_1_loss: 3.9681 - global_pointer_2_loss: 5.2930 - global_pointer_3_loss: 5.1741
+f1: 0.38748, precision: 0.66136, recall: 0.27400: : 3585it [01:16, 47.04it/s]
+best f1: 0.38748
+
+Epoch 9/200
+225/225 [==============================] - 219s 971ms/step - loss: 13.5299 - global_pointer_1_loss: 3.7522 - global_pointer_2_loss: 4.9379 - global_pointer_3_loss: 4.8397
+f1: 0.43622, precision: 0.64845, recall: 0.32865: : 3585it [01:15, 47.25it/s]
+best f1: 0.43622
+
+Epoch 10/200
+225/225 [==============================] - 226s 1s/step - loss: 12.7469 - global_pointer_1_loss: 3.5464 - global_pointer_2_loss: 4.6418 - global_pointer_3_loss: 4.5587
+f1: 0.47217, precision: 0.64337, recall: 0.37294: : 3585it [01:16, 46.63it/s]
+best f1: 0.47217
+
+Epoch 11/200
+225/225 [==============================] - 221s 984ms/step - loss: 12.1729 - global_pointer_1_loss: 3.3923 - global_pointer_2_loss: 4.4289 - global_pointer_3_loss: 4.3517
+f1: 0.49681, precision: 0.63804, recall: 0.40677: : 3585it [01:15, 47.65it/s]
+best f1: 0.49681
+
+Epoch 12/200
+225/225 [==============================] - 223s 990ms/step - loss: 11.3718 - global_pointer_1_loss: 3.2066 - global_pointer_2_loss: 4.1119 - global_pointer_3_loss: 4.0534
+f1: 0.51644, precision: 0.63815, recall: 0.43371: : 3585it [01:15, 47.48it/s]
+best f1: 0.51644
+
+Epoch 13/200
+225/225 [==============================] - 223s 990ms/step - loss: 10.7932 - global_pointer_1_loss: 3.0419 - global_pointer_2_loss: 3.9056 - global_pointer_3_loss: 3.8457
+f1: 0.52985, precision: 0.63674, recall: 0.45369: : 3585it [01:16, 46.89it/s]
+best f1: 0.52985
+
+Epoch 14/200
+225/225 [==============================] - 223s 991ms/step - loss: 10.2010 - global_pointer_1_loss: 2.8915 - global_pointer_2_loss: 3.6788 - global_pointer_3_loss: 3.6307
+f1: 0.54482, precision: 0.63906, recall: 0.47480: : 3585it [01:13, 48.76it/s]
+best f1: 0.54482
+
+Epoch 15/200
+225/225 [==============================] - 220s 979ms/step - loss: 9.5386 - global_pointer_1_loss: 2.7129 - global_pointer_2_loss: 3.4349 - global_pointer_3_loss: 3.3907
+f1: 0.55617, precision: 0.64421, recall: 0.48931: : 3585it [01:16, 47.05it/s]
+best f1: 0.55617
+
+Epoch 16/200
+225/225 [==============================] - 223s 991ms/step - loss: 9.0184 - global_pointer_1_loss: 2.5723 - global_pointer_2_loss: 3.2467 - global_pointer_3_loss: 3.1994
+f1: 0.56294, precision: 0.64581, recall: 0.49892: : 3585it [01:15, 47.34it/s]
+best f1: 0.56294
+
+Epoch 17/200
+225/225 [==============================] - 222s 986ms/step - loss: 8.4895 - global_pointer_1_loss: 2.4399 - global_pointer_2_loss: 3.0473 - global_pointer_3_loss: 3.0024
+f1: 0.57064, precision: 0.64897, recall: 0.50919: : 3585it [01:16, 46.86it/s]
+best f1: 0.57064
+
+Epoch 18/200
+225/225 [==============================] - 217s 965ms/step - loss: 7.9674 - global_pointer_1_loss: 2.3131 - global_pointer_2_loss: 2.8506 - global_pointer_3_loss: 2.8037
+f1: 0.57619, precision: 0.65157, recall: 0.51644: : 3585it [01:17, 46.46it/s]
+best f1: 0.57619
+
+Epoch 19/200
+225/225 [==============================] - 217s 963ms/step - loss: 7.5513 - global_pointer_1_loss: 2.2029 - global_pointer_2_loss: 2.6947 - global_pointer_3_loss: 2.6537
+f1: 0.57945, precision: 0.65289, recall: 0.52087: : 3585it [01:16, 46.94it/s]
+best f1: 0.57945
+
+Epoch 20/200
+225/225 [==============================] - 222s 985ms/step - loss: 7.2410 - global_pointer_1_loss: 2.0981 - global_pointer_2_loss: 2.5890 - global_pointer_3_loss: 2.5539
+f1: 0.58284, precision: 0.65469, recall: 0.52520: : 3585it [01:19, 45.21it/s]
+best f1: 0.58284
+
+Epoch 21/200
+225/225 [==============================] - 223s 992ms/step - loss: 6.7799 - global_pointer_1_loss: 1.9996 - global_pointer_2_loss: 2.4082 - global_pointer_3_loss: 2.3721
+f1: 0.58626, precision: 0.65673, recall: 0.52945: : 3585it [01:16, 47.14it/s]
+best f1: 0.58626
+
+Epoch 22/200
+225/225 [==============================] - 220s 978ms/step - loss: 6.6468 - global_pointer_1_loss: 1.9646 - global_pointer_2_loss: 2.3611 - global_pointer_3_loss: 2.3212
+f1: 0.58964, precision: 0.65755, recall: 0.53444: : 3585it [01:17, 46.48it/s]
+best f1: 0.58964
+
+Epoch 23/200
+225/225 [==============================] - 219s 973ms/step - loss: 6.0015 - global_pointer_1_loss: 1.7762 - global_pointer_2_loss: 2.1346 - global_pointer_3_loss: 2.0907
+f1: 0.59022, precision: 0.65828, recall: 0.53491: : 3585it [01:12, 49.41it/s]
+best f1: 0.59022
+
+Epoch 24/200
+225/225 [==============================] - 222s 988ms/step - loss: 5.7466 - global_pointer_1_loss: 1.6822 - global_pointer_2_loss: 2.0452 - global_pointer_3_loss: 2.0191
+f1: 0.59206, precision: 0.65874, recall: 0.53764: : 3585it [01:15, 47.22it/s]
+best f1: 0.59206
+
+Epoch 25/200
+225/225 [==============================] - 224s 996ms/step - loss: 5.4612 - global_pointer_1_loss: 1.6118 - global_pointer_2_loss: 1.9410 - global_pointer_3_loss: 1.9085
+f1: 0.59265, precision: 0.66091, recall: 0.53717: : 3585it [01:18, 45.70it/s]
+best f1: 0.59265
+
+Epoch 26/200
+225/225 [==============================] - 222s 985ms/step - loss: 5.3307 - global_pointer_1_loss: 1.5942 - global_pointer_2_loss: 1.8754 - global_pointer_3_loss: 1.8611
+f1: 0.59306, precision: 0.66221, recall: 0.53698: : 3585it [01:16, 46.63it/s]
+best f1: 0.59306
+
+Epoch 27/200
+225/225 [==============================] - 221s 983ms/step - loss: 4.9626 - global_pointer_1_loss: 1.4619 - global_pointer_2_loss: 1.7684 - global_pointer_3_loss: 1.7323
+f1: 0.59300, precision: 0.66050, recall: 0.53802: : 3585it [01:17, 46.40it/s]
+Early stop count 1/10
+best f1: 0.59306
+
+Epoch 28/200
+225/225 [==============================] - 221s 983ms/step - loss: 4.9188 - global_pointer_1_loss: 1.4650 - global_pointer_2_loss: 1.7528 - global_pointer_3_loss: 1.7011
+f1: 0.59448, precision: 0.66034, recall: 0.54056: : 3585it [01:14, 48.11it/s]
+best f1: 0.59448
+
+Epoch 29/200
+225/225 [==============================] - 218s 971ms/step - loss: 4.4704 - global_pointer_1_loss: 1.3376 - global_pointer_2_loss: 1.5712 - global_pointer_3_loss: 1.5617
+f1: 0.59528, precision: 0.66035, recall: 0.54188: : 3585it [01:17, 46.45it/s]
+best f1: 0.59528
+
+Epoch 30/200
+225/225 [==============================] - 217s 964ms/step - loss: 4.4596 - global_pointer_1_loss: 1.3141 - global_pointer_2_loss: 1.5807 - global_pointer_3_loss: 1.5648
+f1: 0.59440, precision: 0.65876, recall: 0.54151: : 3585it [01:18, 45.39it/s]
+Early stop count 1/10
+best f1: 0.59528
+
+Epoch 31/200
+225/225 [==============================] - 218s 969ms/step - loss: 4.2062 - global_pointer_1_loss: 1.2337 - global_pointer_2_loss: 1.4950 - global_pointer_3_loss: 1.4775
+f1: 0.59272, precision: 0.65614, recall: 0.54047: : 3585it [01:18, 45.79it/s]
+Early stop count 2/10
+best f1: 0.59528
+
+Epoch 32/200
+225/225 [==============================] - 227s 1s/step - loss: 4.0103 - global_pointer_1_loss: 1.1855 - global_pointer_2_loss: 1.4163 - global_pointer_3_loss: 1.4085
+f1: 0.59501, precision: 0.65956, recall: 0.54198: : 3585it [01:18, 45.82it/s]
+Early stop count 3/10
+best f1: 0.59528
+
+Epoch 33/200
+225/225 [==============================] - 222s 988ms/step - loss: 3.8697 - global_pointer_1_loss: 1.1249 - global_pointer_2_loss: 1.3846 - global_pointer_3_loss: 1.3602
+f1: 0.59612, precision: 0.66033, recall: 0.54330: : 3585it [01:14, 48.12it/s]
+best f1: 0.59612
+
+Epoch 34/200
+225/225 [==============================] - 222s 985ms/step - loss: 3.8156 - global_pointer_1_loss: 1.1142 - global_pointer_2_loss: 1.3449 - global_pointer_3_loss: 1.3565
+f1: 0.59651, precision: 0.66184, recall: 0.54292: : 3585it [01:18, 45.58it/s]
+best f1: 0.59651
+
+Epoch 35/200
+225/225 [==============================] - 220s 979ms/step - loss: 3.5466 - global_pointer_1_loss: 1.0254 - global_pointer_2_loss: 1.2625 - global_pointer_3_loss: 1.2586
+f1: 0.59820, precision: 0.66334, recall: 0.54471: : 3585it [01:17, 46.38it/s]
+best f1: 0.59820
+
+Epoch 36/200
+225/225 [==============================] - 221s 983ms/step - loss: 3.5513 - global_pointer_1_loss: 1.0205 - global_pointer_2_loss: 1.2813 - global_pointer_3_loss: 1.2495
+f1: 0.59997, precision: 0.66476, recall: 0.54669: : 3585it [01:18, 45.90it/s]
+best f1: 0.59997
+
+Epoch 37/200
+225/225 [==============================] - 220s 977ms/step - loss: 3.3127 - global_pointer_1_loss: 0.9566 - global_pointer_2_loss: 1.1883 - global_pointer_3_loss: 1.1678
+f1: 0.60033, precision: 0.66705, recall: 0.54575: : 3585it [01:19, 45.05it/s]
+best f1: 0.60033
+
+Epoch 38/200
+225/225 [==============================] - 221s 982ms/step - loss: 3.2386 - global_pointer_1_loss: 0.9637 - global_pointer_2_loss: 1.1497 - global_pointer_3_loss: 1.1251
+f1: 0.60028, precision: 0.66763, recall: 0.54527: : 3585it [01:17, 46.05it/s]
+Early stop count 1/10
+best f1: 0.60033
+
+Epoch 39/200
+225/225 [==============================] - 220s 980ms/step - loss: 3.2187 - global_pointer_1_loss: 0.9652 - global_pointer_2_loss: 1.1425 - global_pointer_3_loss: 1.1110
+f1: 0.60082, precision: 0.66925, recall: 0.54509: : 3585it [01:16, 46.79it/s]
+best f1: 0.60082
+
+Epoch 40/200
+225/225 [==============================] - 221s 980ms/step - loss: 3.2688 - global_pointer_1_loss: 0.9798 - global_pointer_2_loss: 1.1749 - global_pointer_3_loss: 1.1142
+f1: 0.60084, precision: 0.66648, recall: 0.54697: : 3585it [01:16, 46.58it/s]
+best f1: 0.60084
+
+Epoch 41/200
+225/225 [==============================] - 220s 979ms/step - loss: 3.0404 - global_pointer_1_loss: 0.8982 - global_pointer_2_loss: 1.0679 - global_pointer_3_loss: 1.0742
+f1: 0.60186, precision: 0.66648, recall: 0.54867: : 3585it [01:18, 45.54it/s]
+best f1: 0.60186
+
+Epoch 42/200
+225/225 [==============================] - 221s 984ms/step - loss: 3.4265 - global_pointer_1_loss: 1.0104 - global_pointer_2_loss: 1.2082 - global_pointer_3_loss: 1.2079
+f1: 0.60203, precision: 0.66632, recall: 0.54904: : 3585it [01:18, 45.45it/s]
+best f1: 0.60203
+
+Epoch 43/200
+225/225 [==============================] - 218s 971ms/step - loss: 2.7755 - global_pointer_1_loss: 0.8006 - global_pointer_2_loss: 0.9959 - global_pointer_3_loss: 0.9791
+f1: 0.60341, precision: 0.66819, recall: 0.55008: : 3585it [01:16, 46.79it/s]
+best f1: 0.60341
+
+Epoch 44/200
+225/225 [==============================] - 223s 991ms/step - loss: 2.5344 - global_pointer_1_loss: 0.7187 - global_pointer_2_loss: 0.9144 - global_pointer_3_loss: 0.9012
+f1: 0.60466, precision: 0.67084, recall: 0.55036: : 3585it [01:18, 45.81it/s]
+best f1: 0.60466
+
+Epoch 45/200
+225/225 [==============================] - 223s 992ms/step - loss: 2.5010 - global_pointer_1_loss: 0.7285 - global_pointer_2_loss: 0.9071 - global_pointer_3_loss: 0.8654
+f1: 0.60375, precision: 0.66957, recall: 0.54970: : 3585it [01:15, 47.49it/s]
+Early stop count 1/10
+best f1: 0.60466
+
+Epoch 46/200
+225/225 [==============================] - 222s 989ms/step - loss: 2.4062 - global_pointer_1_loss: 0.6813 - global_pointer_2_loss: 0.8746 - global_pointer_3_loss: 0.8503
+f1: 0.60337, precision: 0.67004, recall: 0.54876: : 3585it [01:16, 46.81it/s]
+Early stop count 2/10
+best f1: 0.60466
+
+Epoch 47/200
+225/225 [==============================] - 220s 979ms/step - loss: 2.6046 - global_pointer_1_loss: 0.7221 - global_pointer_2_loss: 0.9574 - global_pointer_3_loss: 0.9251
+f1: 0.60330, precision: 0.67086, recall: 0.54810: : 3585it [01:17, 46.54it/s]
+Early stop count 3/10
+best f1: 0.60466
+
+Epoch 48/200
+225/225 [==============================] - 223s 993ms/step - loss: 2.6388 - global_pointer_1_loss: 0.6950 - global_pointer_2_loss: 0.9827 - global_pointer_3_loss: 0.9611
+f1: 0.60380, precision: 0.67167, recall: 0.54838: : 3585it [01:17, 46.37it/s]
+Early stop count 4/10
+best f1: 0.60466
+
+Epoch 49/200
+225/225 [==============================] - 225s 1s/step - loss: 2.2544 - global_pointer_1_loss: 0.6337 - global_pointer_2_loss: 0.8175 - global_pointer_3_loss: 0.8032
+f1: 0.60339, precision: 0.67109, recall: 0.54810: : 3585it [01:16, 46.86it/s]
+Early stop count 5/10
+best f1: 0.60466
+
+Epoch 50/200
+225/225 [==============================] - 223s 989ms/step - loss: 2.1937 - global_pointer_1_loss: 0.6098 - global_pointer_2_loss: 0.7932 - global_pointer_3_loss: 0.7907
+f1: 0.60419, precision: 0.67291, recall: 0.54820: : 3585it [01:16, 46.95it/s]
+Early stop count 6/10
+best f1: 0.60466
+
+Epoch 51/200
+225/225 [==============================] - 223s 989ms/step - loss: 2.2086 - global_pointer_1_loss: 0.6310 - global_pointer_2_loss: 0.7868 - global_pointer_3_loss: 0.7907
+f1: 0.60546, precision: 0.67297, recall: 0.55027: : 3585it [01:15, 47.73it/s]
+best f1: 0.60546
+
+Epoch 52/200
+225/225 [==============================] - 219s 975ms/step - loss: 2.1311 - global_pointer_1_loss: 0.5960 - global_pointer_2_loss: 0.7738 - global_pointer_3_loss: 0.7613
+f1: 0.60599, precision: 0.67300, recall: 0.55112: : 3585it [01:16, 46.94it/s]
+best f1: 0.60599
+
+Epoch 53/200
+225/225 [==============================] - 221s 982ms/step - loss: 2.0374 - global_pointer_1_loss: 0.5552 - global_pointer_2_loss: 0.7574 - global_pointer_3_loss: 0.7249
+f1: 0.60615, precision: 0.67479, recall: 0.55017: : 3585it [01:17, 46.33it/s]
+best f1: 0.60615
+
+Epoch 54/200
+225/225 [==============================] - 223s 993ms/step - loss: 1.9828 - global_pointer_1_loss: 0.5611 - global_pointer_2_loss: 0.7216 - global_pointer_3_loss: 0.7001
+f1: 0.60658, precision: 0.67545, recall: 0.55046: : 3585it [01:16, 47.06it/s]
+best f1: 0.60658
+
+Epoch 55/200
+225/225 [==============================] - 220s 976ms/step - loss: 2.0052 - global_pointer_1_loss: 0.5566 - global_pointer_2_loss: 0.7333 - global_pointer_3_loss: 0.7153
+f1: 0.60631, precision: 0.67463, recall: 0.55055: : 3585it [01:16, 46.76it/s]
+Early stop count 1/10
+best f1: 0.60658
+
+Epoch 56/200
+225/225 [==============================] - 223s 991ms/step - loss: 2.1672 - global_pointer_1_loss: 0.5723 - global_pointer_2_loss: 0.8014 - global_pointer_3_loss: 0.7936
+f1: 0.60523, precision: 0.67168, recall: 0.55074: : 3585it [01:17, 46.30it/s]
+Early stop count 2/10
+best f1: 0.60658
+
+Epoch 57/200
+225/225 [==============================] - 225s 999ms/step - loss: 2.0164 - global_pointer_1_loss: 0.5529 - global_pointer_2_loss: 0.7222 - global_pointer_3_loss: 0.7413
+f1: 0.60395, precision: 0.66811, recall: 0.55102: : 3585it [01:17, 46.48it/s]
+Early stop count 3/10
+best f1: 0.60658
+
+Epoch 58/200
+225/225 [==============================] - 221s 984ms/step - loss: 1.8150 - global_pointer_1_loss: 0.5046 - global_pointer_2_loss: 0.6537 - global_pointer_3_loss: 0.6567
+f1: 0.60546, precision: 0.66975, recall: 0.55244: : 3585it [01:14, 48.01it/s]
+Early stop count 4/10
+best f1: 0.60658
+
+Epoch 59/200
+225/225 [==============================] - 224s 996ms/step - loss: 1.7124 - global_pointer_1_loss: 0.4696 - global_pointer_2_loss: 0.6265 - global_pointer_3_loss: 0.6163
+f1: 0.60647, precision: 0.67124, recall: 0.55310: : 3585it [01:17, 46.43it/s]
+Early stop count 5/10
+best f1: 0.60658
+
+Epoch 60/200
+225/225 [==============================] - 224s 997ms/step - loss: 1.6597 - global_pointer_1_loss: 0.4484 - global_pointer_2_loss: 0.6009 - global_pointer_3_loss: 0.6105
+f1: 0.60464, precision: 0.66968, recall: 0.55112: : 3585it [01:16, 47.15it/s]
+Early stop count 6/10
+best f1: 0.60658
+
+Epoch 61/200
+225/225 [==============================] - 222s 986ms/step - loss: 1.8213 - global_pointer_1_loss: 0.5201 - global_pointer_2_loss: 0.6565 - global_pointer_3_loss: 0.6447
+f1: 0.60553, precision: 0.66990, recall: 0.55244: : 3585it [01:16, 47.02it/s]
+Early stop count 7/10
+best f1: 0.60658
+
+Epoch 62/200
+225/225 [==============================] - 222s 985ms/step - loss: 1.7064 - global_pointer_1_loss: 0.4929 - global_pointer_2_loss: 0.6111 - global_pointer_3_loss: 0.6024
+f1: 0.60734, precision: 0.67115, recall: 0.55460: : 3585it [01:16, 46.81it/s]
+best f1: 0.60734
+
+Epoch 63/200
+225/225 [==============================] - 224s 995ms/step - loss: 1.7693 - global_pointer_1_loss: 0.5072 - global_pointer_2_loss: 0.6366 - global_pointer_3_loss: 0.6255
+f1: 0.60563, precision: 0.66906, recall: 0.55319: : 3585it [01:15, 47.20it/s]
+Early stop count 1/10
+best f1: 0.60734
+
+Epoch 64/200
+225/225 [==============================] - 223s 993ms/step - loss: 1.6356 - global_pointer_1_loss: 0.4344 - global_pointer_2_loss: 0.6059 - global_pointer_3_loss: 0.5953
+f1: 0.60546, precision: 0.66837, recall: 0.55338: : 3585it [01:17, 46.55it/s]
+Early stop count 2/10
+best f1: 0.60734
+
+Epoch 65/200
+225/225 [==============================] - 219s 974ms/step - loss: 1.9694 - global_pointer_1_loss: 0.5337 - global_pointer_2_loss: 0.7101 - global_pointer_3_loss: 0.7256
+f1: 0.60611, precision: 0.66829, recall: 0.55451: : 3585it [01:16, 46.84it/s]
+Early stop count 3/10
+best f1: 0.60734
+
+Epoch 66/200
+225/225 [==============================] - 221s 981ms/step - loss: 1.7815 - global_pointer_1_loss: 0.5015 - global_pointer_2_loss: 0.6447 - global_pointer_3_loss: 0.6352
+f1: 0.60841, precision: 0.66885, recall: 0.55799: : 3585it [01:16, 47.02it/s]
+best f1: 0.60841
+
+Epoch 67/200
+225/225 [==============================] - 217s 963ms/step - loss: 1.4053 - global_pointer_1_loss: 0.3856 - global_pointer_2_loss: 0.5061 - global_pointer_3_loss: 0.5135
+f1: 0.60857, precision: 0.67113, recall: 0.55668: : 3585it [01:16, 46.72it/s]
+best f1: 0.60857
+
+Epoch 68/200
+225/225 [==============================] - 224s 997ms/step - loss: 1.4633 - global_pointer_1_loss: 0.4009 - global_pointer_2_loss: 0.5440 - global_pointer_3_loss: 0.5185
+f1: 0.60898, precision: 0.67352, recall: 0.55573: : 3585it [01:15, 47.62it/s]
+best f1: 0.60898
+
+Epoch 69/200
+225/225 [==============================] - 222s 985ms/step - loss: 1.6664 - global_pointer_1_loss: 0.4707 - global_pointer_2_loss: 0.6007 - global_pointer_3_loss: 0.5950
+f1: 0.60844, precision: 0.67275, recall: 0.55536: : 3585it [01:17, 46.36it/s]
+Early stop count 1/10
+best f1: 0.60898
+
+Epoch 70/200
+225/225 [==============================] - 223s 993ms/step - loss: 1.4173 - global_pointer_1_loss: 0.3879 - global_pointer_2_loss: 0.5033 - global_pointer_3_loss: 0.5261
+f1: 0.60777, precision: 0.67138, recall: 0.55517: : 3585it [01:16, 46.78it/s]
+Early stop count 2/10
+best f1: 0.60898
+
+Epoch 71/200
+225/225 [==============================] - 223s 992ms/step - loss: 1.5083 - global_pointer_1_loss: 0.4016 - global_pointer_2_loss: 0.5530 - global_pointer_3_loss: 0.5538
+f1: 0.60890, precision: 0.67317, recall: 0.55583: : 3585it [01:16, 46.91it/s]
+Early stop count 3/10
+best f1: 0.60898
+
+Epoch 72/200
+225/225 [==============================] - 221s 983ms/step - loss: 1.3867 - global_pointer_1_loss: 0.3953 - global_pointer_2_loss: 0.5058 - global_pointer_3_loss: 0.4856
+f1: 0.60904, precision: 0.67379, recall: 0.55564: : 3585it [01:14, 48.09it/s]
+best f1: 0.60904
+
+Epoch 73/200
+225/225 [==============================] - 219s 973ms/step - loss: 1.4517 - global_pointer_1_loss: 0.4217 - global_pointer_2_loss: 0.5128 - global_pointer_3_loss: 0.5173
+f1: 0.60968, precision: 0.67510, recall: 0.55583: : 3585it [01:16, 46.82it/s]
+best f1: 0.60968
+
+Epoch 74/200
+225/225 [==============================] - 220s 979ms/step - loss: 1.3544 - global_pointer_1_loss: 0.3794 - global_pointer_2_loss: 0.4848 - global_pointer_3_loss: 0.4902
+f1: 0.60892, precision: 0.67379, recall: 0.55545: : 3585it [01:11, 50.33it/s]
+Early stop count 1/10
+best f1: 0.60968
+
+Epoch 75/200
+225/225 [==============================] - 220s 979ms/step - loss: 1.4583 - global_pointer_1_loss: 0.4257 - global_pointer_2_loss: 0.5232 - global_pointer_3_loss: 0.5094
+f1: 0.60784, precision: 0.67184, recall: 0.55498: : 3585it [01:16, 46.72it/s]
+Early stop count 2/10
+best f1: 0.60968
+
+Epoch 76/200
+225/225 [==============================] - 219s 975ms/step - loss: 1.4711 - global_pointer_1_loss: 0.4066 - global_pointer_2_loss: 0.5225 - global_pointer_3_loss: 0.5420
+f1: 0.60689, precision: 0.67062, recall: 0.55423: : 3585it [01:16, 47.08it/s]
+Early stop count 3/10
+best f1: 0.60968
+
+Epoch 77/200
+225/225 [==============================] - 219s 974ms/step - loss: 1.2835 - global_pointer_1_loss: 0.3555 - global_pointer_2_loss: 0.4699 - global_pointer_3_loss: 0.4581
+f1: 0.60708, precision: 0.67066, recall: 0.55451: : 3585it [01:16, 46.90it/s]
+Early stop count 4/10
+best f1: 0.60968
+
+Epoch 78/200
+225/225 [==============================] - 216s 962ms/step - loss: 1.2465 - global_pointer_1_loss: 0.3383 - global_pointer_2_loss: 0.4568 - global_pointer_3_loss: 0.4514
+f1: 0.60697, precision: 0.67054, recall: 0.55441: : 3585it [01:16, 46.75it/s]
+Early stop count 5/10
+best f1: 0.60968
+
+Epoch 79/200
+225/225 [==============================] - 217s 965ms/step - loss: 1.3136 - global_pointer_1_loss: 0.3428 - global_pointer_2_loss: 0.4829 - global_pointer_3_loss: 0.4879
+f1: 0.60727, precision: 0.67196, recall: 0.55394: : 3585it [01:16, 46.75it/s]
+Early stop count 6/10
+best f1: 0.60968
+
+Epoch 80/200
+225/225 [==============================] - 219s 973ms/step - loss: 1.1557 - global_pointer_1_loss: 0.2991 - global_pointer_2_loss: 0.4348 - global_pointer_3_loss: 0.4218
+f1: 0.60797, precision: 0.67506, recall: 0.55300: : 3585it [01:15, 47.41it/s]
+Early stop count 7/10
+best f1: 0.60968
+
+Epoch 81/200
+225/225 [==============================] - 222s 985ms/step - loss: 1.5779 - global_pointer_1_loss: 0.4730 - global_pointer_2_loss: 0.5532 - global_pointer_3_loss: 0.5518
+f1: 0.60758, precision: 0.67425, recall: 0.55291: : 3585it [01:14, 48.06it/s]
+Early stop count 8/10
+best f1: 0.60968
+
+Epoch 82/200
+225/225 [==============================] - 218s 970ms/step - loss: 1.2326 - global_pointer_1_loss: 0.3434 - global_pointer_2_loss: 0.4547 - global_pointer_3_loss: 0.4345
+f1: 0.60693, precision: 0.67348, recall: 0.55234: : 3585it [01:15, 47.18it/s]
+Early stop count 9/10
+best f1: 0.60968
+
+Epoch 83/200
+225/225 [==============================] - 220s 979ms/step - loss: 1.2718 - global_pointer_1_loss: 0.3572 - global_pointer_2_loss: 0.4667 - global_pointer_3_loss: 0.4479
+f1: 0.60525, precision: 0.67103, recall: 0.55121: : 3585it [01:16, 46.57it/s]
+Early stop count 10/10
+Epoch 00082: early stopping THR
+best f1: 0.60968
+
+findfont: Font family ['sans-serif'] not found. Falling back to DejaVu Sans.
+
+进程已结束,退出代码0
