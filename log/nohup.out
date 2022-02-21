@@ -1,0 +1,824 @@
+ssh://bureaux@180.169.131.147:22/home/bureaux/miniconda3/envs/Keras-base/bin/python -u /home/bureaux/.pycharm_helpers/pydev/pydevconsole.py --mode=server
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['/home/bureaux/Projects/EMA', '/home/bureaux/Projects/EMA'])
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
+runfile('/home/bureaux/Projects/EMA/train.py', wdir='/home/bureaux/Projects/EMA')
+PyDev console: using IPython 7.16.1
+Python 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59)
+[GCC 7.5.0] on linux
+Using TensorFlow backend.
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:4185: The name tf.truncated_normal is deprecated. Please use tf.random.truncated_normal instead.
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:131: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:133: The name tf.placeholder_with_default is deprecated. Please use tf.compat.v1.placeholder_with_default instead.
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:3445: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:174: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+2022-02-14 10:46:05.297943: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2022-02-14 10:46:05.310016: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
+2022-02-14 10:46:05.855592: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55c35e71adb0 executing computations on platform CUDA. Devices:
+2022-02-14 10:46:05.855669: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Graphics Device, Compute Capability 7.0
+2022-02-14 10:46:05.860618: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2400000000 Hz
+2022-02-14 10:46:05.863946: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55c35e85bb90 executing computations on platform Host. Devices:
+2022-02-14 10:46:05.864014: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+2022-02-14 10:46:05.865745: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties:
+name: Graphics Device major: 7 minor: 0 memoryClockRate(GHz): 1.597
+pciBusID: 0000:3b:00.0
+2022-02-14 10:46:05.866257: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2022-02-14 10:46:05.868971: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2022-02-14 10:46:05.871454: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0
+2022-02-14 10:46:05.872034: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0
+2022-02-14 10:46:05.875459: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0
+2022-02-14 10:46:05.878133: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0
+2022-02-14 10:46:05.885568: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2022-02-14 10:46:05.890641: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0
+2022-02-14 10:46:05.890727: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2022-02-14 10:46:05.893495: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-02-14 10:46:05.893542: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      0
+2022-02-14 10:46:05.893567: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 0:   N
+2022-02-14 10:46:05.897476: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30458 MB memory) -> physical GPU (device: 0, name: Graphics Device, pci bus id: 0000:3b:00.0, compute capability: 7.0)
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/tensorflow/python/ops/nn_impl.py:180: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+Input-Token (InputLayer)        (None, None)         0
+__________________________________________________________________________________________________
+Input-Segment (InputLayer)      (None, None)         0
+__________________________________________________________________________________________________
+Embedding-Token (Embedding)     (None, None, 384)    4608000     Input-Token[0][0]
+__________________________________________________________________________________________________
+Embedding-Segment (Embedding)   (None, None, 384)    768         Input-Segment[0][0]
+__________________________________________________________________________________________________
+Embedding-Token-Segment (Add)   (None, None, 384)    0           Embedding-Token[0][0]
+                                                                 Embedding-Segment[0][0]
+__________________________________________________________________________________________________
+Embedding-Norm (LayerNormalizat (None, None, 384)    768         Embedding-Token-Segment[0][0]
+__________________________________________________________________________________________________
+Embedding-Dropout (Dropout)     (None, None, 384)    0           Embedding-Norm[0][0]
+__________________________________________________________________________________________________
+Embedding-Rotary-Position (Sinu (None, None, 64)     0           Embedding-Dropout[0][0]
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    591360      Embedding-Dropout[0][0]
+                                                                 Embedding-Dropout[0][0]
+                                                                 Embedding-Dropout[0][0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    0           Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    0           Embedding-Dropout[0][0]
+                                                                 Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-MultiHeadSelfAtte (None, None, 384)    768         Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-FeedForward (Feed (None, None, 384)    1181568     Transformer-0-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Dropo (None, None, 384)    0           Transformer-0-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Add ( (None, None, 384)    0           Transformer-0-MultiHeadSelfAttent
+                                                                 Transformer-0-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-0-FeedForward-Norm  (None, None, 384)    768         Transformer-0-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-0-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    0           Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    0           Transformer-0-FeedForward-Norm[0]
+                                                                 Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-MultiHeadSelfAtte (None, None, 384)    768         Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-FeedForward (Feed (None, None, 384)    1181568     Transformer-1-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Dropo (None, None, 384)    0           Transformer-1-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Add ( (None, None, 384)    0           Transformer-1-MultiHeadSelfAttent
+                                                                 Transformer-1-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-1-FeedForward-Norm  (None, None, 384)    768         Transformer-1-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-1-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    0           Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    0           Transformer-1-FeedForward-Norm[0]
+                                                                 Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-MultiHeadSelfAtte (None, None, 384)    768         Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-FeedForward (Feed (None, None, 384)    1181568     Transformer-2-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Dropo (None, None, 384)    0           Transformer-2-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Add ( (None, None, 384)    0           Transformer-2-MultiHeadSelfAttent
+                                                                 Transformer-2-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-2-FeedForward-Norm  (None, None, 384)    768         Transformer-2-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-2-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    0           Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    0           Transformer-2-FeedForward-Norm[0]
+                                                                 Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-MultiHeadSelfAtte (None, None, 384)    768         Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-FeedForward (Feed (None, None, 384)    1181568     Transformer-3-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Dropo (None, None, 384)    0           Transformer-3-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Add ( (None, None, 384)    0           Transformer-3-MultiHeadSelfAttent
+                                                                 Transformer-3-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-3-FeedForward-Norm  (None, None, 384)    768         Transformer-3-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-3-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    0           Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    0           Transformer-3-FeedForward-Norm[0]
+                                                                 Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-MultiHeadSelfAtte (None, None, 384)    768         Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-FeedForward (Feed (None, None, 384)    1181568     Transformer-4-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Dropo (None, None, 384)    0           Transformer-4-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Add ( (None, None, 384)    0           Transformer-4-MultiHeadSelfAttent
+                                                                 Transformer-4-FeedForward-Dropout
+__________________________________________________________________________________________________
+Transformer-4-FeedForward-Norm  (None, None, 384)    768         Transformer-4-FeedForward-Add[0][
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    591360      Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-4-FeedForward-Norm[0]
+                                                                 Embedding-Rotary-Position[0][0]
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    0           Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    0           Transformer-4-FeedForward-Norm[0]
+                                                                 Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-MultiHeadSelfAtte (None, None, 384)    768         Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-FeedForward (Feed (None, None, 384)    1181568     Transformer-5-MultiHeadSelfAttent
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Dropo (None, None, 384)    0           Transformer-5-FeedForward[0][0]
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Add ( (None, None, 384)    0           Transformer-5-MultiHeadSelfAttent
+                                                                 Transformer-5-FeedForward-Dropout
+__________________________________________________________________________________________________
+Subject-Ids (InputLayer)        (None, 2)            0
+__________________________________________________________________________________________________
+lambda_2 (Lambda)               (None, 768)          0           Transformer-5-FeedForward-Add[0][
+                                                                 Subject-Ids[0][0]
+__________________________________________________________________________________________________
+layer_normalization_1 (LayerNor (None, None, 384)    590592      Transformer-5-FeedForward-Add[0][
+                                                                 lambda_2[0][0]
+__________________________________________________________________________________________________
+Transformer-5-FeedForward-Norm  (None, None, 384)    768         Transformer-5-FeedForward-Add[0][
+__________________________________________________________________________________________________
+dense_40 (Dense)                (None, None, 106)    40810       layer_normalization_1[0][0]
+__________________________________________________________________________________________________
+dense_37 (Dense)                (None, None, 2)      770         Transformer-5-FeedForward-Norm[0]
+__________________________________________________________________________________________________
+lambda_3 (Lambda)               (None, None, 106)    0           dense_40[0][0]
+__________________________________________________________________________________________________
+Subject-Labels (InputLayer)     (None, None, 2)      0
+__________________________________________________________________________________________________
+Object-Labels (InputLayer)      (None, None, 53, 2)  0
+__________________________________________________________________________________________________
+lambda_1 (Lambda)               (None, None, 2)      0           dense_37[0][0]
+__________________________________________________________________________________________________
+reshape_1 (Reshape)             (None, None, 53, 2)  0           lambda_3[0][0]
+__________________________________________________________________________________________________
+total_loss_1 (TotalLoss)        [(None, None, 2), (N 0           Subject-Labels[0][0]
+                                                                 Object-Labels[0][0]
+                                                                 lambda_1[0][0]
+                                                                 reshape_1[0][0]
+                                                                 Transformer-5-FeedForward-Norm[0]
+==================================================================================================
+Total params: 15,888,492
+Trainable params: 15,888,492
+Non-trainable params: 0
+__________________________________________________________________________________________________
+WARNING:tensorflow:From /home/bureaux/miniconda3/envs/Keras-base/lib/python3.6/site-packages/keras/optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+Epoch 1/200
+113/113 [==============================] - 107s 948ms/step - loss: 0.4781 - val_loss: 0.2970
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [00:57, 61.87it/s]
+best f1: 0.00000
+Epoch 2/200
+113/113 [==============================] - 93s 826ms/step - loss: 0.2564 - val_loss: 0.1617
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [00:56, 63.42it/s]
+best f1: 0.00000
+Epoch 3/200
+113/113 [==============================] - 101s 894ms/step - loss: 0.1492 - val_loss: 0.1147
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [00:56, 63.70it/s]
+best f1: 0.00000
+Epoch 4/200
+113/113 [==============================] - 105s 926ms/step - loss: 0.1227 - val_loss: 0.1047
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [00:56, 63.24it/s]
+best f1: 0.00000
+Epoch 5/200
+113/113 [==============================] - 103s 916ms/step - loss: 0.1088 - val_loss: 0.0956
+f1: 0.00000, precision: 1.00000, recall: 0.00000: : 3585it [00:55, 64.02it/s]
+best f1: 0.00000
+Epoch 6/200
+113/113 [==============================] - 105s 927ms/step - loss: 0.0998 - val_loss: 0.0904
+f1: 0.00094, precision: 0.62500, recall: 0.00047: : 3585it [00:59, 60.05it/s]
+best f1: 0.00094
+Epoch 7/200
+113/113 [==============================] - 102s 902ms/step - loss: 0.0935 - val_loss: 0.0860
+f1: 0.05075, precision: 0.81050, recall: 0.02619: : 3585it [01:21, 43.94it/s]
+best f1: 0.05075
+Epoch 8/200
+113/113 [==============================] - 100s 885ms/step - loss: 0.0876 - val_loss: 0.0842
+f1: 0.12068, precision: 0.70850, recall: 0.06596: : 3585it [01:32, 38.77it/s]
+best f1: 0.12068
+Epoch 9/200
+113/113 [==============================] - 100s 885ms/step - loss: 0.0828 - val_loss: 0.0834
+f1: 0.19968, precision: 0.68299, recall: 0.11693: : 3585it [01:37, 36.92it/s]
+best f1: 0.19968
+Epoch 10/200
+113/113 [==============================] - 99s 876ms/step - loss: 0.0776 - val_loss: 0.0816
+f1: 0.26023, precision: 0.66473, recall: 0.16178: : 3585it [01:39, 35.94it/s]
+best f1: 0.26023
+Epoch 11/200
+113/113 [==============================] - 96s 850ms/step - loss: 0.0740 - val_loss: 0.0807
+f1: 0.30784, precision: 0.64359, recall: 0.20230: : 3585it [01:40, 35.53it/s]
+best f1: 0.30784
+Epoch 12/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0700 - val_loss: 0.0806
+f1: 0.35059, precision: 0.64415, recall: 0.24084: : 3585it [01:42, 35.14it/s]
+best f1: 0.35059
+Epoch 13/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0659 - val_loss: 0.0801
+f1: 0.38548, precision: 0.64103, recall: 0.27561: : 3585it [01:42, 35.05it/s]
+best f1: 0.38548
+Epoch 14/200
+113/113 [==============================] - 97s 859ms/step - loss: 0.0630 - val_loss: 0.0787
+f1: 0.41297, precision: 0.63192, recall: 0.30670: : 3585it [01:43, 34.62it/s]
+best f1: 0.41297
+Epoch 15/200
+113/113 [==============================] - 94s 832ms/step - loss: 0.0595 - val_loss: 0.0827
+f1: 0.43643, precision: 0.62445, recall: 0.33544: : 3585it [01:44, 34.31it/s]
+best f1: 0.43643
+Epoch 16/200
+113/113 [==============================] - 95s 840ms/step - loss: 0.0562 - val_loss: 0.0820
+f1: 0.45653, precision: 0.62315, recall: 0.36022: : 3585it [01:40, 35.73it/s]
+best f1: 0.45653
+Epoch 17/200
+113/113 [==============================] - 93s 823ms/step - loss: 0.0524 - val_loss: 0.0828
+f1: 0.47133, precision: 0.62069, recall: 0.37991: : 3585it [01:44, 34.17it/s]
+best f1: 0.47133
+Epoch 18/200
+113/113 [==============================] - 95s 843ms/step - loss: 0.0502 - val_loss: 0.0840
+f1: 0.48644, precision: 0.62311, recall: 0.39894: : 3585it [01:45, 34.14it/s]
+best f1: 0.48644
+Epoch 19/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0479 - val_loss: 0.0862
+f1: 0.49650, precision: 0.61959, recall: 0.41421: : 3585it [01:46, 33.77it/s]
+best f1: 0.49650
+Epoch 20/200
+113/113 [==============================] - 95s 840ms/step - loss: 0.0446 - val_loss: 0.0865
+f1: 0.50345, precision: 0.61595, recall: 0.42570: : 3585it [01:45, 34.02it/s]
+best f1: 0.50345
+Epoch 21/200
+113/113 [==============================] - 96s 848ms/step - loss: 0.0425 - val_loss: 0.0883
+f1: 0.50914, precision: 0.61295, recall: 0.43541: : 3585it [01:45, 33.99it/s]
+best f1: 0.50914
+Epoch 22/200
+113/113 [==============================] - 95s 840ms/step - loss: 0.0400 - val_loss: 0.0904
+f1: 0.51462, precision: 0.61251, recall: 0.44370: : 3585it [01:45, 34.08it/s]
+best f1: 0.51462
+Epoch 23/200
+113/113 [==============================] - 94s 834ms/step - loss: 0.0381 - val_loss: 0.0935
+f1: 0.52044, precision: 0.61176, recall: 0.45284: : 3585it [01:45, 33.93it/s]
+best f1: 0.52044
+Epoch 24/200
+113/113 [==============================] - 96s 853ms/step - loss: 0.0368 - val_loss: 0.0938
+f1: 0.52426, precision: 0.61088, recall: 0.45915: : 3585it [01:46, 33.77it/s]
+best f1: 0.52426
+Epoch 25/200
+113/113 [==============================] - 96s 849ms/step - loss: 0.0338 - val_loss: 0.0945
+f1: 0.52914, precision: 0.61106, recall: 0.46660: : 3585it [01:45, 33.96it/s]
+best f1: 0.52914
+Epoch 26/200
+113/113 [==============================] - 95s 841ms/step - loss: 0.0333 - val_loss: 0.0985
+f1: 0.53098, precision: 0.60952, recall: 0.47037: : 3585it [01:46, 33.81it/s]
+best f1: 0.53098
+Epoch 27/200
+113/113 [==============================] - 95s 839ms/step - loss: 0.0315 - val_loss: 0.0995
+f1: 0.53231, precision: 0.60660, recall: 0.47423: : 3585it [01:45, 33.92it/s]
+best f1: 0.53231
+Epoch 28/200
+113/113 [==============================] - 95s 842ms/step - loss: 0.0296 - val_loss: 0.0997
+f1: 0.53435, precision: 0.60607, recall: 0.47781: : 3585it [01:46, 33.73it/s]
+best f1: 0.53435
+Epoch 29/200
+113/113 [==============================] - 96s 848ms/step - loss: 0.0288 - val_loss: 0.1030
+f1: 0.53621, precision: 0.60512, recall: 0.48139: : 3585it [01:46, 33.78it/s]
+best f1: 0.53621
+Epoch 30/200
+113/113 [==============================] - 94s 833ms/step - loss: 0.0269 - val_loss: 0.1023
+f1: 0.53959, precision: 0.60690, recall: 0.48573: : 3585it [01:45, 33.91it/s]
+best f1: 0.53959
+Epoch 31/200
+113/113 [==============================] - 96s 850ms/step - loss: 0.0265 - val_loss: 0.1037
+f1: 0.54201, precision: 0.60744, recall: 0.48931: : 3585it [01:45, 33.94it/s]
+best f1: 0.54201
+Epoch 32/200
+113/113 [==============================] - 96s 849ms/step - loss: 0.0251 - val_loss: 0.1072
+f1: 0.54429, precision: 0.60752, recall: 0.49298: : 3585it [01:45, 33.84it/s]
+best f1: 0.54429
+Epoch 33/200
+113/113 [==============================] - 97s 858ms/step - loss: 0.0236 - val_loss: 0.1064
+f1: 0.54579, precision: 0.60827, recall: 0.49496: : 3585it [01:46, 33.68it/s]
+best f1: 0.54579
+Epoch 34/200
+113/113 [==============================] - 95s 845ms/step - loss: 0.0232 - val_loss: 0.1080
+f1: 0.54627, precision: 0.60802, recall: 0.49590: : 3585it [01:45, 33.82it/s]
+best f1: 0.54627
+Epoch 35/200
+113/113 [==============================] - 95s 840ms/step - loss: 0.0221 - val_loss: 0.1117
+f1: 0.54781, precision: 0.60831, recall: 0.49826: : 3585it [01:46, 33.76it/s]
+best f1: 0.54781
+Epoch 36/200
+113/113 [==============================] - 96s 847ms/step - loss: 0.0212 - val_loss: 0.1106
+f1: 0.55118, precision: 0.60990, recall: 0.50278: : 3585it [01:46, 33.61it/s]
+best f1: 0.55118
+Epoch 37/200
+113/113 [==============================] - 95s 843ms/step - loss: 0.0207 - val_loss: 0.1155
+f1: 0.55226, precision: 0.61033, recall: 0.50429: : 3585it [01:48, 33.17it/s]
+best f1: 0.55226
+Epoch 38/200
+113/113 [==============================] - 97s 859ms/step - loss: 0.0196 - val_loss: 0.1191
+f1: 0.55521, precision: 0.61229, recall: 0.50787: : 3585it [01:45, 33.92it/s]
+best f1: 0.55521
+Epoch 39/200
+113/113 [==============================] - 95s 839ms/step - loss: 0.0185 - val_loss: 0.1207
+f1: 0.55572, precision: 0.61175, recall: 0.50909: : 3585it [01:46, 33.78it/s]
+best f1: 0.55572
+Epoch 40/200
+113/113 [==============================] - 97s 860ms/step - loss: 0.0181 - val_loss: 0.1119
+f1: 0.55748, precision: 0.61290, recall: 0.51126: : 3585it [01:46, 33.74it/s]
+best f1: 0.55748
+Epoch 41/200
+113/113 [==============================] - 96s 847ms/step - loss: 0.0180 - val_loss: 0.1209
+f1: 0.55838, precision: 0.61385, recall: 0.51211: : 3585it [01:46, 33.61it/s]
+best f1: 0.55838
+Epoch 42/200
+113/113 [==============================] - 96s 851ms/step - loss: 0.0171 - val_loss: 0.1214
+f1: 0.55910, precision: 0.61395, recall: 0.51324: : 3585it [01:46, 33.73it/s]
+best f1: 0.55910
+Epoch 43/200
+113/113 [==============================] - 97s 856ms/step - loss: 0.0166 - val_loss: 0.1256
+f1: 0.56274, precision: 0.61830, recall: 0.51635: : 3585it [01:45, 33.88it/s]
+best f1: 0.56274
+Epoch 44/200
+113/113 [==============================] - 95s 838ms/step - loss: 0.0162 - val_loss: 0.1231
+f1: 0.56362, precision: 0.61839, recall: 0.51776: : 3585it [01:46, 33.72it/s]
+best f1: 0.56362
+Epoch 45/200
+113/113 [==============================] - 96s 846ms/step - loss: 0.0155 - val_loss: 0.1228
+f1: 0.56486, precision: 0.61895, recall: 0.51946: : 3585it [01:46, 33.81it/s]
+best f1: 0.56486
+Epoch 46/200
+113/113 [==============================] - 97s 856ms/step - loss: 0.0148 - val_loss: 0.1259
+f1: 0.56576, precision: 0.61911, recall: 0.52087: : 3585it [01:45, 33.88it/s]
+best f1: 0.56576
+Epoch 47/200
+113/113 [==============================] - 96s 853ms/step - loss: 0.0147 - val_loss: 0.1251
+f1: 0.56530, precision: 0.61868, recall: 0.52040: : 3585it [01:45, 33.90it/s]
+Early stop count 1/10
+best f1: 0.56576
+Epoch 48/200
+113/113 [==============================] - 97s 854ms/step - loss: 0.0144 - val_loss: 0.1275
+f1: 0.56585, precision: 0.61827, recall: 0.52162: : 3585it [01:46, 33.75it/s]
+best f1: 0.56585
+Epoch 49/200
+113/113 [==============================] - 94s 835ms/step - loss: 0.0139 - val_loss: 0.1294
+f1: 0.56601, precision: 0.61706, recall: 0.52276: : 3585it [01:45, 33.82it/s]
+best f1: 0.56601
+Epoch 50/200
+113/113 [==============================] - 96s 853ms/step - loss: 0.0136 - val_loss: 0.1299
+f1: 0.56739, precision: 0.61813, recall: 0.52436: : 3585it [01:45, 33.88it/s]
+best f1: 0.56739
+Epoch 51/200
+113/113 [==============================] - 96s 851ms/step - loss: 0.0132 - val_loss: 0.1364
+f1: 0.56948, precision: 0.61928, recall: 0.52709: : 3585it [01:46, 33.80it/s]
+best f1: 0.56948
+Epoch 52/200
+113/113 [==============================] - 96s 846ms/step - loss: 0.0126 - val_loss: 0.1341
+f1: 0.56981, precision: 0.61943, recall: 0.52756: : 3585it [01:42, 35.11it/s]
+best f1: 0.56981
+Epoch 53/200
+113/113 [==============================] - 95s 840ms/step - loss: 0.0124 - val_loss: 0.1329
+f1: 0.56919, precision: 0.61912, recall: 0.52671: : 3585it [01:46, 33.62it/s]
+Early stop count 1/10
+best f1: 0.56981
+Epoch 54/200
+113/113 [==============================] - 98s 864ms/step - loss: 0.0124 - val_loss: 0.1352
+f1: 0.56956, precision: 0.61830, recall: 0.52794: : 3585it [01:48, 33.03it/s]
+Early stop count 2/10
+best f1: 0.56981
+Epoch 55/200
+113/113 [==============================] - 94s 831ms/step - loss: 0.0120 - val_loss: 0.1299
+f1: 0.56892, precision: 0.61654, recall: 0.52813: : 3585it [01:46, 33.66it/s]
+Early stop count 3/10
+best f1: 0.56981
+Epoch 56/200
+113/113 [==============================] - 97s 858ms/step - loss: 0.0129 - val_loss: 0.1343
+f1: 0.57001, precision: 0.61743, recall: 0.52935: : 3585it [01:46, 33.66it/s]
+best f1: 0.57001
+Epoch 57/200
+113/113 [==============================] - 96s 852ms/step - loss: 0.0119 - val_loss: 0.1399
+f1: 0.56914, precision: 0.61490, recall: 0.52973: : 3585it [01:47, 33.44it/s]
+Early stop count 1/10
+best f1: 0.57001
+Epoch 58/200
+113/113 [==============================] - 95s 844ms/step - loss: 0.0110 - val_loss: 0.1348
+f1: 0.56966, precision: 0.61535, recall: 0.53029: : 3585it [01:45, 33.85it/s]
+Early stop count 2/10
+best f1: 0.57001
+Epoch 59/200
+113/113 [==============================] - 96s 854ms/step - loss: 0.0106 - val_loss: 0.1390
+f1: 0.57053, precision: 0.61636, recall: 0.53105: : 3585it [01:46, 33.57it/s]
+best f1: 0.57053
+Epoch 60/200
+113/113 [==============================] - 97s 858ms/step - loss: 0.0106 - val_loss: 0.1408
+f1: 0.57072, precision: 0.61642, recall: 0.53133: : 3585it [01:46, 33.65it/s]
+best f1: 0.57072
+Epoch 61/200
+113/113 [==============================] - 98s 867ms/step - loss: 0.0106 - val_loss: 0.1395
+f1: 0.57227, precision: 0.61864, recall: 0.53237: : 3585it [01:45, 33.91it/s]
+best f1: 0.57227
+Epoch 62/200
+113/113 [==============================] - 95s 842ms/step - loss: 0.0101 - val_loss: 0.1386
+f1: 0.57283, precision: 0.61855, recall: 0.53340: : 3585it [01:46, 33.70it/s]
+best f1: 0.57283
+Epoch 63/200
+113/113 [==============================] - 97s 859ms/step - loss: 0.0098 - val_loss: 0.1400
+f1: 0.57351, precision: 0.61951, recall: 0.53387: : 3585it [01:46, 33.63it/s]
+best f1: 0.57351
+Epoch 64/200
+113/113 [==============================] - 96s 854ms/step - loss: 0.0096 - val_loss: 0.1478
+f1: 0.57382, precision: 0.62060, recall: 0.53359: : 3585it [01:46, 33.76it/s]
+best f1: 0.57382
+Epoch 65/200
+113/113 [==============================] - 96s 847ms/step - loss: 0.0092 - val_loss: 0.1478
+f1: 0.57402, precision: 0.62005, recall: 0.53434: : 3585it [01:46, 33.64it/s]
+best f1: 0.57402
+Epoch 66/200
+113/113 [==============================] - 96s 852ms/step - loss: 0.0090 - val_loss: 0.1392
+f1: 0.57507, precision: 0.62138, recall: 0.53519: : 3585it [01:47, 33.48it/s]
+best f1: 0.57507
+Epoch 67/200
+113/113 [==============================] - 97s 861ms/step - loss: 0.0092 - val_loss: 0.1479
+f1: 0.57508, precision: 0.62189, recall: 0.53482: : 3585it [01:46, 33.57it/s]
+best f1: 0.57508
+Epoch 68/200
+113/113 [==============================] - 96s 849ms/step - loss: 0.0089 - val_loss: 0.1488
+f1: 0.57437, precision: 0.62112, recall: 0.53416: : 3585it [01:45, 34.09it/s]
+Early stop count 1/10
+best f1: 0.57508
+Epoch 69/200
+113/113 [==============================] - 95s 845ms/step - loss: 0.0091 - val_loss: 0.1448
+f1: 0.57535, precision: 0.62189, recall: 0.53529: : 3585it [01:45, 34.02it/s]
+best f1: 0.57535
+Epoch 70/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0085 - val_loss: 0.1531
+f1: 0.57622, precision: 0.62265, recall: 0.53623: : 3585it [01:40, 35.53it/s]
+best f1: 0.57622
+Epoch 71/200
+113/113 [==============================] - 95s 843ms/step - loss: 0.0088 - val_loss: 0.1467
+f1: 0.57581, precision: 0.62195, recall: 0.53604: : 3585it [01:45, 33.98it/s]
+Early stop count 1/10
+best f1: 0.57622
+Epoch 72/200
+113/113 [==============================] - 99s 877ms/step - loss: 0.0086 - val_loss: 0.1441
+f1: 0.57826, precision: 0.62578, recall: 0.53745: : 3585it [01:49, 32.72it/s]
+best f1: 0.57826
+Epoch 73/200
+113/113 [==============================] - 97s 854ms/step - loss: 0.0080 - val_loss: 0.1506
+f1: 0.57882, precision: 0.62568, recall: 0.53849: : 3585it [01:44, 34.25it/s]
+best f1: 0.57882
+Epoch 74/200
+113/113 [==============================] - 97s 855ms/step - loss: 0.0085 - val_loss: 0.1398
+f1: 0.57724, precision: 0.62339, recall: 0.53745: : 3585it [01:46, 33.78it/s]
+Early stop count 1/10
+best f1: 0.57882
+Epoch 75/200
+113/113 [==============================] - 94s 836ms/step - loss: 0.0082 - val_loss: 0.1532
+f1: 0.57805, precision: 0.62452, recall: 0.53802: : 3585it [01:46, 33.70it/s]
+Early stop count 2/10
+best f1: 0.57882
+Epoch 76/200
+113/113 [==============================] - 96s 847ms/step - loss: 0.0079 - val_loss: 0.1536
+f1: 0.57850, precision: 0.62467, recall: 0.53868: : 3585it [01:46, 33.80it/s]
+Early stop count 3/10
+best f1: 0.57882
+Epoch 77/200
+113/113 [==============================] - 95s 844ms/step - loss: 0.0078 - val_loss: 0.1524
+f1: 0.57805, precision: 0.62262, recall: 0.53943: : 3585it [01:45, 33.84it/s]
+Early stop count 4/10
+best f1: 0.57882
+Epoch 78/200
+113/113 [==============================] - 96s 851ms/step - loss: 0.0076 - val_loss: 0.1473
+f1: 0.57945, precision: 0.62337, recall: 0.54132: : 3585it [01:45, 33.99it/s]
+best f1: 0.57945
+Epoch 79/200
+113/113 [==============================] - 96s 845ms/step - loss: 0.0072 - val_loss: 0.1527
+f1: 0.57945, precision: 0.62337, recall: 0.54132: : 3585it [01:46, 33.67it/s]
+best f1: 0.57945
+Epoch 80/200
+113/113 [==============================] - 94s 836ms/step - loss: 0.0074 - val_loss: 0.1524
+f1: 0.58014, precision: 0.62371, recall: 0.54226: : 3585it [01:46, 33.82it/s]
+best f1: 0.58014
+Epoch 81/200
+113/113 [==============================] - 98s 867ms/step - loss: 0.0081 - val_loss: 0.1437
+f1: 0.58002, precision: 0.62405, recall: 0.54179: : 3585it [01:46, 33.81it/s]
+Early stop count 1/10
+best f1: 0.58014
+Epoch 82/200
+113/113 [==============================] - 96s 847ms/step - loss: 0.0071 - val_loss: 0.1549
+f1: 0.58010, precision: 0.62348, recall: 0.54235: : 3585it [01:46, 33.57it/s]
+Early stop count 2/10
+best f1: 0.58014
+Epoch 83/200
+113/113 [==============================] - 95s 842ms/step - loss: 0.0069 - val_loss: 0.1528
+f1: 0.58198, precision: 0.62573, recall: 0.54396: : 3585it [01:46, 33.55it/s]
+best f1: 0.58198
+Epoch 84/200
+113/113 [==============================] - 96s 851ms/step - loss: 0.0069 - val_loss: 0.1616
+f1: 0.58262, precision: 0.62645, recall: 0.54452: : 3585it [01:46, 33.73it/s]
+best f1: 0.58262
+Epoch 85/200
+113/113 [==============================] - 97s 858ms/step - loss: 0.0066 - val_loss: 0.1555
+f1: 0.58222, precision: 0.62541, recall: 0.54462: : 3585it [01:46, 33.68it/s]
+Early stop count 1/10
+best f1: 0.58262
+Epoch 86/200
+113/113 [==============================] - 97s 855ms/step - loss: 0.0065 - val_loss: 0.1540
+f1: 0.58307, precision: 0.62650, recall: 0.54527: : 3585it [01:46, 33.74it/s]
+best f1: 0.58307
+Epoch 87/200
+113/113 [==============================] - 95s 840ms/step - loss: 0.0066 - val_loss: 0.1554
+f1: 0.58368, precision: 0.62654, recall: 0.54631: : 3585it [01:45, 33.87it/s]
+best f1: 0.58368
+Epoch 88/200
+113/113 [==============================] - 93s 823ms/step - loss: 0.0064 - val_loss: 0.1406
+f1: 0.58352, precision: 0.62630, recall: 0.54622: : 3585it [01:46, 33.78it/s]
+Early stop count 1/10
+best f1: 0.58368
+Epoch 89/200
+113/113 [==============================] - 99s 874ms/step - loss: 0.0065 - val_loss: 0.1654
+f1: 0.58437, precision: 0.62652, recall: 0.54754: : 3585it [01:47, 33.36it/s]
+best f1: 0.58437
+Epoch 90/200
+113/113 [==============================] - 96s 850ms/step - loss: 0.0070 - val_loss: 0.1585
+f1: 0.58475, precision: 0.62740, recall: 0.54754: : 3585it [01:46, 33.54it/s]
+best f1: 0.58475
+Epoch 91/200
+113/113 [==============================] - 96s 846ms/step - loss: 0.0063 - val_loss: 0.1584
+f1: 0.58476, precision: 0.62792, recall: 0.54716: : 3585it [01:46, 33.69it/s]
+best f1: 0.58476
+Epoch 92/200
+113/113 [==============================] - 98s 868ms/step - loss: 0.0064 - val_loss: 0.1567
+f1: 0.58479, precision: 0.62712, recall: 0.54782: : 3585it [01:45, 33.87it/s]
+best f1: 0.58479
+Epoch 93/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0060 - val_loss: 0.1576
+f1: 0.58458, precision: 0.62725, recall: 0.54735: : 3585it [01:46, 33.76it/s]
+Early stop count 1/10
+best f1: 0.58479
+Epoch 94/200
+113/113 [==============================] - 97s 858ms/step - loss: 0.0062 - val_loss: 0.1556
+f1: 0.58416, precision: 0.62666, recall: 0.54706: : 3585it [01:46, 33.72it/s]
+Early stop count 2/10
+best f1: 0.58479
+Epoch 95/200
+113/113 [==============================] - 98s 871ms/step - loss: 0.0060 - val_loss: 0.1599
+f1: 0.58426, precision: 0.62651, recall: 0.54735: : 3585it [01:46, 33.70it/s]
+Early stop count 3/10
+best f1: 0.58479
+Epoch 96/200
+113/113 [==============================] - 97s 856ms/step - loss: 0.0056 - val_loss: 0.1572
+f1: 0.58556, precision: 0.62679, recall: 0.54942: : 3585it [01:47, 33.49it/s]
+best f1: 0.58556
+Epoch 97/200
+113/113 [==============================] - 96s 846ms/step - loss: 0.0055 - val_loss: 0.1607
+f1: 0.58576, precision: 0.62675, recall: 0.54980: : 3585it [01:46, 33.77it/s]
+best f1: 0.58576
+Epoch 98/200
+113/113 [==============================] - 96s 854ms/step - loss: 0.0060 - val_loss: 0.1620
+f1: 0.58622, precision: 0.62757, recall: 0.54999: : 3585it [01:46, 33.79it/s]
+best f1: 0.58622
+Epoch 99/200
+113/113 [==============================] - 96s 845ms/step - loss: 0.0059 - val_loss: 0.1530
+f1: 0.58591, precision: 0.62795, recall: 0.54914: : 3585it [01:46, 33.66it/s]
+Early stop count 1/10
+best f1: 0.58622
+Epoch 100/200
+113/113 [==============================] - 97s 863ms/step - loss: 0.0058 - val_loss: 0.1674
+f1: 0.58571, precision: 0.62712, recall: 0.54942: : 3585it [01:46, 33.78it/s]
+Early stop count 2/10
+best f1: 0.58622
+Epoch 101/200
+113/113 [==============================] - 98s 869ms/step - loss: 0.0064 - val_loss: 0.1532
+f1: 0.58456, precision: 0.62597, recall: 0.54829: : 3585it [01:46, 33.78it/s]
+Early stop count 3/10
+best f1: 0.58622
+Epoch 102/200
+113/113 [==============================] - 96s 850ms/step - loss: 0.0057 - val_loss: 0.1643
+f1: 0.58542, precision: 0.62636, recall: 0.54951: : 3585it [01:46, 33.61it/s]
+Early stop count 4/10
+best f1: 0.58622
+Epoch 103/200
+113/113 [==============================] - 97s 858ms/step - loss: 0.0055 - val_loss: 0.1561
+f1: 0.58585, precision: 0.62660, recall: 0.55008: : 3585it [01:46, 33.63it/s]
+Early stop count 5/10
+best f1: 0.58622
+Epoch 104/200
+113/113 [==============================] - 98s 871ms/step - loss: 0.0056 - val_loss: 0.1586
+f1: 0.58526, precision: 0.62525, recall: 0.55008: : 3585it [01:46, 33.52it/s]
+Early stop count 6/10
+best f1: 0.58622
+Epoch 105/200
+113/113 [==============================] - 96s 848ms/step - loss: 0.0063 - val_loss: 0.1616
+f1: 0.58693, precision: 0.62589, recall: 0.55253: : 3585it [01:46, 33.59it/s]
+best f1: 0.58693
+Epoch 106/200
+113/113 [==============================] - 95s 839ms/step - loss: 0.0050 - val_loss: 0.1662
+f1: 0.58660, precision: 0.62491, recall: 0.55272: : 3585it [01:46, 33.65it/s]
+Early stop count 1/10
+best f1: 0.58693
+Epoch 107/200
+113/113 [==============================] - 96s 851ms/step - loss: 0.0048 - val_loss: 0.1651
+f1: 0.58733, precision: 0.62572, recall: 0.55338: : 3585it [01:44, 34.41it/s]
+best f1: 0.58733
+Epoch 108/200
+113/113 [==============================] - 98s 871ms/step - loss: 0.0055 - val_loss: 0.1614
+f1: 0.58782, precision: 0.62600, recall: 0.55404: : 3585it [01:46, 33.68it/s]
+best f1: 0.58782
+Epoch 109/200
+113/113 [==============================] - 98s 868ms/step - loss: 0.0049 - val_loss: 0.1587
+f1: 0.58763, precision: 0.62690, recall: 0.55300: : 3585it [01:44, 34.45it/s]
+Early stop count 1/10
+best f1: 0.58782
+Epoch 110/200
+113/113 [==============================] - 96s 854ms/step - loss: 0.0048 - val_loss: 0.1665
+f1: 0.58788, precision: 0.62734, recall: 0.55310: : 3585it [01:45, 34.02it/s]
+best f1: 0.58788
+Epoch 111/200
+113/113 [==============================] - 97s 861ms/step - loss: 0.0054 - val_loss: 0.1545
+f1: 0.58743, precision: 0.62668, recall: 0.55281: : 3585it [01:44, 34.16it/s]
+Early stop count 1/10
+best f1: 0.58788
+Epoch 112/200
+113/113 [==============================] - 97s 863ms/step - loss: 0.0056 - val_loss: 0.1663
+f1: 0.58705, precision: 0.62496, recall: 0.55347: : 3585it [01:46, 33.69it/s]
+Early stop count 2/10
+best f1: 0.58788
+Epoch 113/200
+113/113 [==============================] - 96s 848ms/step - loss: 0.0049 - val_loss: 0.1692
+f1: 0.58710, precision: 0.62544, recall: 0.55319: : 3585it [01:46, 33.60it/s]
+Early stop count 3/10
+best f1: 0.58788
+Epoch 114/200
+113/113 [==============================] - 97s 855ms/step - loss: 0.0049 - val_loss: 0.1586
+f1: 0.58768, precision: 0.62652, recall: 0.55338: : 3585it [01:45, 33.82it/s]
+Early stop count 4/10
+best f1: 0.58788
+Epoch 115/200
+113/113 [==============================] - 97s 855ms/step - loss: 0.0048 - val_loss: 0.1664
+f1: 0.58842, precision: 0.62759, recall: 0.55385: : 3585it [01:45, 33.82it/s]
+best f1: 0.58842
+Epoch 116/200
+113/113 [==============================] - 96s 846ms/step - loss: 0.0046 - val_loss: 0.1599
+f1: 0.58772, precision: 0.62710, recall: 0.55300: : 3585it [01:45, 34.02it/s]
+Early stop count 1/10
+best f1: 0.58842
+Epoch 117/200
+113/113 [==============================] - 98s 863ms/step - loss: 0.0045 - val_loss: 0.1680
+f1: 0.58736, precision: 0.62699, recall: 0.55244: : 3585it [01:46, 33.76it/s]
+Early stop count 2/10
+best f1: 0.58842
+Epoch 118/200
+113/113 [==============================] - 96s 847ms/step - loss: 0.0050 - val_loss: 0.1533
+f1: 0.58937, precision: 0.62817, recall: 0.55507: : 3585it [01:46, 33.53it/s]
+best f1: 0.58937
+Epoch 119/200
+113/113 [==============================] - 96s 850ms/step - loss: 0.0053 - val_loss: 0.1642
+f1: 0.58866, precision: 0.62743, recall: 0.55441: : 3585it [01:45, 33.89it/s]
+Early stop count 1/10
+best f1: 0.58937
+Epoch 120/200
+113/113 [==============================] - 98s 870ms/step - loss: 0.0046 - val_loss: 0.1724
+f1: 0.58863, precision: 0.62771, recall: 0.55413: : 3585it [01:45, 34.06it/s]
+Early stop count 2/10
+best f1: 0.58937
+Epoch 121/200
+113/113 [==============================] - 96s 851ms/step - loss: 0.0044 - val_loss: 0.1623
+f1: 0.59003, precision: 0.62981, recall: 0.55498: : 3585it [01:45, 34.01it/s]
+best f1: 0.59003
+Epoch 122/200
+113/113 [==============================] - 97s 856ms/step - loss: 0.0050 - val_loss: 0.1604
+f1: 0.59109, precision: 0.63076, recall: 0.55611: : 3585it [01:46, 33.70it/s]
+best f1: 0.59109
+Epoch 123/200
+113/113 [==============================] - 97s 858ms/step - loss: 0.0046 - val_loss: 0.1634
+f1: 0.59031, precision: 0.62936, recall: 0.55583: : 3585it [01:43, 34.78it/s]
+Early stop count 1/10
+best f1: 0.59109
+Epoch 124/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0044 - val_loss: 0.1661
+f1: 0.59023, precision: 0.62942, recall: 0.55564: : 3585it [01:47, 33.31it/s]
+Early stop count 2/10
+best f1: 0.59109
+Epoch 125/200
+113/113 [==============================] - 99s 877ms/step - loss: 0.0042 - val_loss: 0.1686
+f1: 0.58944, precision: 0.62821, recall: 0.55517: : 3585it [01:45, 34.00it/s]
+Early stop count 3/10
+best f1: 0.59109
+Epoch 126/200
+113/113 [==============================] - 96s 854ms/step - loss: 0.0040 - val_loss: 0.1709
+f1: 0.58958, precision: 0.62951, recall: 0.55441: : 3585it [01:46, 33.70it/s]
+Early stop count 4/10
+best f1: 0.59109
+Epoch 127/200
+113/113 [==============================] - 95s 841ms/step - loss: 0.0045 - val_loss: 0.1613
+f1: 0.59070, precision: 0.63049, recall: 0.55564: : 3585it [01:45, 33.86it/s]
+Early stop count 5/10
+best f1: 0.59109
+Epoch 128/200
+113/113 [==============================] - 96s 848ms/step - loss: 0.0042 - val_loss: 0.1702
+f1: 0.58977, precision: 0.62982, recall: 0.55451: : 3585it [01:45, 33.94it/s]
+Early stop count 6/10
+best f1: 0.59109
+Epoch 129/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0041 - val_loss: 0.1587
+f1: 0.58963, precision: 0.62913, recall: 0.55479: : 3585it [01:46, 33.66it/s]
+Early stop count 7/10
+best f1: 0.59109
+Epoch 130/200
+113/113 [==============================] - 96s 845ms/step - loss: 0.0043 - val_loss: 0.1733
+f1: 0.58871, precision: 0.62800, recall: 0.55404: : 3585it [01:46, 33.73it/s]
+Early stop count 8/10
+best f1: 0.59109
+Epoch 131/200
+113/113 [==============================] - 97s 857ms/step - loss: 0.0042 - val_loss: 0.1683
+f1: 0.58966, precision: 0.62945, recall: 0.55460: : 3585it [01:46, 33.62it/s]
+Early stop count 9/10
+best f1: 0.59109
+Epoch 132/200
+113/113 [==============================] - 97s 855ms/step - loss: 0.0038 - val_loss: 0.1654
+f1: 0.59008, precision: 0.63004, recall: 0.55489: : 3585it [01:45, 33.86it/s]
+Early stop count 10/10
+Epoch 00131: early stopping THR
+best f1: 0.59109
+findfont: Font family ['sans-serif'] not found. Falling back to DejaVu Sans.
+进程已结束,退出代码-1
