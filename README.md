@@ -100,61 +100,68 @@ ATTENTION:
 ```
 ./
 ├── README.md
-├── model.py                               CasRel模型
-├── chinese_roformer-sim-char-ft_L-12_H-768_A-12                              786隐藏层base版bert模型
-│   ├── bert_config.json
-│   ├── bert_model.ckpt.data-00000-of-00001
-│   ├── bert_model.ckpt.index
-│   ├── bert_model.ckpt.meta
-│   ├── checkpoint
-│   └── vocab.txt
-├── chinese_roformer-sim-char-ft_L-6_H-384_A-6                              384隐藏层base版bert模型
-│   ├── bert_config.json
-│   ├── bert_model.ckpt.data-00000-of-00001
-│   ├── bert_model.ckpt.index
-│   ├── bert_model.ckpt.meta
-│   ├── checkpoint
-│   └── vocab.txt
-├── config.py                              模型配置
-├── data                                   数据文件夹
-│   ├── chip_2020_2                        原始数据
-│   │   ├── 53_schemas.json
-│   │   ├── train_data.json
-│   │   └── val_data.json
-│   ├── pred                               评估模型时预测生成的数据
-│   │   └── val_pred_ep121.json
-│   └── preprocessed                       经过处理后可以用预训练的数据
-│       ├── 53_schemas.json
-│       ├── train_data.json
-│       └── val_data.json
-├── dataloader.py                          训练数据生成器
-├── evaluate.py                            评估方法
-├── images
-│   ├── model.png                          模型可视化
-│   ├── train_loss.png                     训练损失
-│   └── val_f1.png                         验证F1
-├── schemaloader.py                        载入schema
-├── log
-│   ├── nohup.out                    训练日志
-│   └── train_log.csv                训练损失
-├── path.py                                项目所有文件的路径
-├── plot.py                                画图工具
-├── predict.py                             生成预测
-├── report
-│   └── f1.csv                             验证F1
-├── statistics.py                          统计最长句子长度
-├── train.py                               训练
-├── utils                                  bert4keras工具包，也可pip下载
-│   ├── __init__.py
-│   ├── adversarial.py
-│   ├── backend.py
-│   ├── layers.py
-│   ├── models.py
-│   ├── optimizers.py
-│   ├── snippets.py
-│   └── tokenizers.py
-└── weights                                保存的权重
-    └── gplinker_roformer_best.h5
+├── chinese_roformer-v2-char_L-12_H-768_A-12            roformer-v2 12层base版
+│		 ├── bert_config.json
+│		 ├── bert_model.ckpt.data-00000-of-00001
+│		 ├── bert_model.ckpt.index
+│		 ├── bert_model.ckpt.meta
+│		 ├── checkpoint
+│		 └── vocab.txt
+├── chinese_roformer-v2-char_L-6_H-384_A-6              roformer-v2 12层base版
+│		 ├── bert_config.json
+│		 ├── bert_model.ckpt.data-00000-of-00001
+│		 ├── bert_model.ckpt.index
+│		 ├── bert_model.ckpt.meta
+│		 ├── checkpoint
+│		 └── vocab.txt
+├── config.py                                           部分超参数配置
+├── data
+│		 ├── chip2020                           数据集
+│		 │		 ├── 53_schemas.json
+│		 │		 ├── train_data.json
+│		 │		 └── val_data.json
+│		 └── pred                               最佳模型预测样本
+│		     ├── val_pred_ep38.json
+│		     └── val_pred_ep73.json
+├── dataloader.py                                       数据编码器
+├── evaluate.py                                         模型评估
+├── images                                              数据绘图
+│		 ├── train_loss.png
+│		 ├── train_loss_base.png
+│		 ├── val_f1.png
+│		 └── val_f1_base.png
+├── log                                                 日志
+│		 ├── f1.out
+│		 ├── nohup.out
+│		 ├── nohup_base.out
+│		 ├── train_log.csv
+│		 └── train_log_base.csv
+├── main.py
+├── model.py                                            模型文件
+├── path.py                                             项目路径
+├── plot.py                                             画图工具
+├── predict.py                                          预测文件
+├── report                                              模型评估报告
+│		 ├── f1.csv
+│		 ├── predicate_f1.csv
+│		 └── predicate_f1_base.csv
+├── schemaloader.py                                     schema加载器
+├── test.py                                             token转可读字符
+├── train.py                                            训练
+├── utils                                               bert4keras工具包，可pip下载
+│		 ├── __init__.py
+│		 ├── adversarial.py
+│		 ├── backend.py
+│		 ├── layers.py
+│		 ├── models.py
+│		 ├── optimizers.py
+│		 ├── snippets.py
+│		 └── tokenizers.py
+└── weights                                             保存的权重
+    ├── gplinker_roformer_best.h5
+    └── gplinker_roformer_v2_best.h5
+
+10 directories, 51 files
 
 ```
 
