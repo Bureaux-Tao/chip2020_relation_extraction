@@ -182,7 +182,7 @@ tqdm==4.61.2
 
 ### 预训练模型
 
-> RoFormer-Sim，又称SimBERTv2，是SimBERT模型的升级版。
+> RoFormer-Sim small版，又称SimBERTv2，是SimBERT模型的升级版。
 > 
 > [https://github.com/ZhuiyiTechnology/roformer-sim](https://github.com/ZhuiyiTechnology/roformer-sim)
 > 
