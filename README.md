@@ -207,9 +207,9 @@ tqdm==4.61.2
 
 gplinker的标签loader有3个：`batch_entity_labels`、`batch_head_labels`、`batch_tail_labels`。
 
-`batch_entity_labels`为实体指针，实体头指向实体，维度（batch_size, 2, batch内最大单条object数, 2），其中第二维包括subject和object指针，subject和object指针的第三维数量都要填充到batch内最大单条object数。第四维是头指针和尾指针，第一个是实体头在tokens中的下标，第二个是实体尾在tokens中的下标。`batch_entity_labels`的GlobalPointer中需要mask掉下三角，因为实体头不可能出现在实体为后面。
-`batch_head_labels`为头对头指针，subject头指向object头，维度（batch_size, predicate数量, batch内最大单条头对头指针数, 2）。第四维是头对头指针，第一个是subject实体头在tokens中的下标，第二个是object实体头在tokens中的下标。`batch_entity_labels`的GlobalPointer中不能mask掉下三角，因为subject头可能在object头后面。
-`batch_tail_labels`为头对头指针，subject尾指向object尾，维度（batch_size, predicate数量, batch内最大单条尾对尾指针数, 2）。第四维是尾对尾指针，第一个是subject实体尾在tokens中的下标，第二个是object实体尾在tokens中的下标。`batch_entity_labels`的GlobalPointer中不能mask掉下三角，因为subject尾可能在object头后面。需要该指针的意义是为了能有效识别出嵌套关系（头指针相同、尾指针不同的关系）。
+- `batch_entity_labels`为实体指针，实体头指向实体，维度（batch_size, 2, batch内最大单条object数, 2），其中第二维包括subject和object指针，subject和object指针的第三维数量都要填充到batch内最大单条object数。第四维是头指针和尾指针，第一个是实体头在tokens中的下标，第二个是实体尾在tokens中的下标。`batch_entity_labels`的GlobalPointer中需要mask掉下三角，因为实体头不可能出现在实体为后面。
+- `batch_head_labels`为头对头指针，subject头指向object头，维度（batch_size, predicate数量, batch内最大单条头对头指针数, 2）。第四维是头对头指针，第一个是subject实体头在tokens中的下标，第二个是object实体头在tokens中的下标。`batch_entity_labels`的GlobalPointer中不能mask掉下三角，因为subject头可能在object头后面。
+- `batch_tail_labels`为头对头指针，subject尾指向object尾，维度（batch_size, predicate数量, batch内最大单条尾对尾指针数, 2）。第四维是尾对尾指针，第一个是subject实体尾在tokens中的下标，第二个是object实体尾在tokens中的下标。`batch_entity_labels`的GlobalPointer中不能mask掉下三角，因为subject尾可能在object头后面。需要该指针的意义是为了能有效识别出嵌套关系（头指针相同、尾指针不同的关系）。
 
 ## Config
 
