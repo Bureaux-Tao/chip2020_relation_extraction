@@ -1,2 +1,0 @@
-model_checkpoint_path: "/root/kg/bert/chinese_roformer-sim-char-ft_L-6_H-384_A-6/bert_model.ckpt"
-all_model_checkpoint_paths: "/root/kg/bert/chinese_roformer-sim-char-ft_L-6_H-384_A-6/bert_model.ckpt"

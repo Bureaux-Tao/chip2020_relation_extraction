@@ -1,0 +1,2 @@
+model_checkpoint_path: "/root/kg/bert/chinese_roformer-v2-char_L-12_H-768_A-12/bert_model.ckpt"
+all_model_checkpoint_paths: "/root/kg/bert/chinese_roformer-v2-char_L-12_H-768_A-12/bert_model.ckpt"

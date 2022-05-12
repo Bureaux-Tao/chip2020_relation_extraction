@@ -15,7 +15,7 @@ valid_data = load_data(val_file_path)
 
 # 构建模型
 AdamEMA = extend_with_exponential_moving_average(Adam, name = 'AdamEMA')
-optimizer = AdamEMA(lr = 1e-4)
+optimizer = AdamEMA(lr = 5e-5)
 model.compile(loss = globalpointer_crossentropy, optimizer = optimizer)
 model.summary()
 
@@ -63,17 +63,14 @@ class Evaluator(keras.callbacks.Callback):
 
 
 if __name__ == '__main__':
-    save_all_path = ("{}/{}_{}_small".format(weights_path, event_type, MODEL_TYPE)) + "_ep{epoch:02d}.h5"
     train_generator = data_generator(train_data, batch_size)
-    evaluator = Evaluator(patience = 10)
-    save_model = ModelCheckpoint(save_all_path, monitor = 'loss', verbose = 0, period = 1,
-                                 save_weights_only = True, save_best_only = False)
+    evaluator = Evaluator(patience = 5)
     
     history = model.fit(
         train_generator.forfit(),
         steps_per_epoch = len(train_generator),
-        epochs = 200,
-        callbacks = [evaluator, save_model]
+        epochs = 999,
+        callbacks = [evaluator]
     )
     
     train_plot(history.history, history.epoch)

@@ -78,4 +78,4 @@ if __name__ == '__main__':
     # text = "第三节 室间隔缺损 室间隔缺损（ventricular septal defect，VSD）是最常见的先天性心血管畸形，可占先心病人的20%。 有中至大型左向右分流，产生心力衰竭的婴儿，当可能出现缺损部分或完全自然关闭时，也可最初以药物治疗：①利尿剂降低心脏负荷和体循环静脉的充血状况。"
     # text = "B族链球菌感染@脓毒症 * 一线疗法：青霉素或氨苄西林。B族链球菌感染@ * 青霉素过敏患者：二代或三代头孢菌素（可能适用，具体取决于过敏反应类型）或者万古霉素。"
     print(json.dumps(predict(text = text,
-                             model_path = "./weights/gplinker_roformer_best.h5"), ensure_ascii = False))
+                             model_path = "./weights/gplinker_roformer_v2_best.h5"), ensure_ascii = False))

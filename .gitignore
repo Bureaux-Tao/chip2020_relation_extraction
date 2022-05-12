@@ -138,6 +138,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-chinese_roformer-sim-char-ft_L-6_H-384_A-6/*ckpt*
-chinese_roformer-sim-char-ft_L-12_H-768_A-12/*ckpt*
+chinese_roformer-v2-char_L-6_H-384_A-6/*ckpt*
+chinese_roformer-v2-char_L-12_H-768_A-12/*ckpt*
 weights/*.h5

@@ -7,6 +7,36 @@ from utils.layers import GlobalPointer
 from utils.models import build_transformer_model
 
 
+class SetLearningRate:
+    """层的一个包装，用来设置当前层的学习率
+    """
+    
+    def __init__(self, layer, lamb, is_ada = False):
+        self.layer = layer
+        self.lamb = lamb  # 学习率比例
+        self.is_ada = is_ada  # 是否自适应学习率优化器
+    
+    def __call__(self, inputs):
+        with K.name_scope(self.layer.name):
+            if not self.layer.built:
+                input_shape = K.int_shape(inputs)
+                self.layer.build(input_shape)
+                self.layer.built = True
+                if self.layer._initial_weights is not None:
+                    self.layer.set_weights(self.layer._initial_weights)
+        for key in ['kernel', 'bias', 'embeddings', 'depthwise_kernel', 'pointwise_kernel', 'recurrent_kernel', 'gamma',
+                    'beta']:
+            if hasattr(self.layer, key):
+                weight = getattr(self.layer, key)
+                if self.is_ada:
+                    lamb = self.lamb  # 自适应学习率优化器直接保持lamb比例
+                else:
+                    lamb = self.lamb ** 0.5  # SGD（包括动量加速），lamb要开平方
+                K.set_value(weight, K.eval(weight) / lamb)  # 更改初始化
+                setattr(self.layer, key, weight * lamb)  # 按比例替换
+        return self.layer(inputs)
+
+
 def globalpointer_crossentropy(y_true, y_pred):
     """给GlobalPointer设计的交叉熵
     """
@@ -27,13 +57,14 @@ def get_model():
     )
     
     # 预测结果
-    entity_output = GlobalPointer(heads = 2, head_size = 64)(base.model.output)
-    head_output = GlobalPointer(
-        heads = len(predicate2id), head_size = 64, RoPE = False, tril_mask = False
-    )(base.model.output)
-    tail_output = GlobalPointer(
-        heads = len(predicate2id), head_size = 64, RoPE = False, tril_mask = False
-    )(base.model.output)
+    entity_output = SetLearningRate(GlobalPointer(heads = 2, head_size = 64, kernel_initializer = "he_normal"),
+                                    10, True)(base.model.output)
+    head_output = SetLearningRate(GlobalPointer(
+        heads = len(predicate2id), head_size = 64, RoPE = False, tril_mask = False, kernel_initializer = "he_normal"
+    ), 10, True)(base.model.output)
+    tail_output = SetLearningRate(GlobalPointer(
+        heads = len(predicate2id), head_size = 64, RoPE = False, tril_mask = False, kernel_initializer = "he_normal"
+    ), 10, True)(base.model.output)
     outputs = [entity_output, head_output, tail_output]
     
     model = keras.models.Model(base.model.inputs, outputs)

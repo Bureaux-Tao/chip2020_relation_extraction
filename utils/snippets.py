@@ -136,14 +136,10 @@ class open:
         return len(self.offsets)
 
     def __iter__(self):
-        if hasattr(self, 'offsets'):
-            for i in range(len(self)):
-                yield self[i]
-        else:
-            for l in self.file:
-                if self.encoding:
-                    l = convert_to_unicode(l, self.encoding, self.errors)
-                yield l
+        for l in self.file:
+            if self.encoding:
+                l = convert_to_unicode(l, self.encoding, self.errors)
+            yield l
 
     def next(self):
         if self.iterator is None:
@@ -891,7 +887,7 @@ class Hook:
         self.module = module
 
     def __getattr__(self, attr):
-        """使得 from bert4keras.snippets import uniout
+        """使得 from utils.snippets import uniout
         等效于 import uniout （自动识别Python版本，Python3
         下则无操作。）
         """

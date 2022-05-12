@@ -1,0 +1,11 @@
+{
+  "hidden_act": "relu",
+  "hidden_size": 384,
+  "hidden_dropout_prob": 0.1,
+  "attention_probs_dropout_prob": 0.1,
+  "intermediate_size": 1536,
+  "num_attention_heads": 6,
+  "num_hidden_layers": 6,
+  "type_vocab_size": 2,
+  "vocab_size": 12000
+}

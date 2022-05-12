@@ -19,8 +19,8 @@ val_file_path = proj_path + "/data/chip2020/val_data.json"
 schema_path = proj_path + "/data/chip2020/53_schemas.json"
 
 # Model Config
-MODEL_TYPE = 'roformer'
+MODEL_TYPE = 'roformer_v2'
 
-BASE_MODEL_DIR = proj_path + "/chinese_roformer-sim-char-ft_L-6_H-384_A-6"
-BASE_CONFIG_NAME = proj_path + "/chinese_roformer-sim-char-ft_L-6_H-384_A-6/bert_config.json"
-BASE_CKPT_NAME = proj_path + "/chinese_roformer-sim-char-ft_L-6_H-384_A-6/bert_model.ckpt"
+BASE_MODEL_DIR = proj_path + "/chinese_roformer-v2-char_L-12_H-768_A-12"
+BASE_CONFIG_NAME = proj_path + "/chinese_roformer-v2-char_L-12_H-768_A-12/bert_config.json"
+BASE_CKPT_NAME = proj_path + "/chinese_roformer-v2-char_L-12_H-768_A-12/bert_model.ckpt"

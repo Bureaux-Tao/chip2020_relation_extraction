@@ -14,7 +14,7 @@ def evaluate(data, epoch):
     """评估函数，计算f1、precision、recall
     """
     X, Y, Z = 1e-10, 1e-10, 1e-10
-    f = open(proj_path + "/data/pred/val_pred_ep" + str(epoch + 1) + ".json", 'w', encoding = 'utf-8')
+    f = open(proj_path + "/data/pred/val_adafactor_ep" + str(epoch + 1) + ".json", 'w', encoding = 'utf-8')
     pbar = tqdm()
     for d in data:
         R = set([SPO(spo) for spo in extract_spoes(d['text'], model)])
@@ -84,7 +84,7 @@ def evaluate_each_relations_f1(model_path, dataset_path):
 
 
 if __name__ == '__main__':
-    result = evaluate_each_relations_f1(model_path = "./weights/gplinker_roformer_best.h5",
+    result = evaluate_each_relations_f1(model_path = "./weights/gplinker_roformer_v2_base_best.h5",
                                         dataset_path = "./data/chip2020/val_data.json")
     df = pd.DataFrame(result)
     df = df.T
@@ -95,5 +95,5 @@ if __name__ == '__main__':
     pd.set_option('display.max_columns', None)
     # 显示所有行，把列显示设置成最大
     pd.set_option('display.max_rows', None)
-    df.to_csv("./report/predicate_f1.csv")
+    df.to_csv("./report/predicate_f1_base.csv")
     print(df)
