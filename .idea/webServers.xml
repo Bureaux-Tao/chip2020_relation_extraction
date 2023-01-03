@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="1c5ecc0f-185e-4ba0-8385-ca4fec94dec6" name="GPLinker">
-        <fileTransfer accessType="SFTP" host="180.169.131.147" port="22" sshConfigId="03272ad8-3c65-4cd1-95f0-0886d605abb3" sshConfig="bureaux@180.169.131.147:22 password">
+        <fileTransfer accessType="SFTP" host="172.30.2.148" port="22" sshConfigId="872cabfb-8275-4df1-b1cf-3a49481268de" sshConfig="bureaux@172.30.2.148:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

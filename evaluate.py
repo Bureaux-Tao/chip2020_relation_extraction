@@ -10,12 +10,13 @@ from path import proj_path
 from schemaloader import predicate2id
 
 
-def evaluate(data, epoch):
+def evaluate(data, epoch, silent = False):
     """评估函数，计算f1、precision、recall
     """
     X, Y, Z = 1e-10, 1e-10, 1e-10
-    f = open(proj_path + "/data/pred/val_adafactor_ep" + str(epoch + 1) + ".json", 'w', encoding = 'utf-8')
-    pbar = tqdm()
+    f = open(proj_path + "/data/pred/val_ep" + str(epoch + 1) + ".json", 'w', encoding = 'utf-8')
+    if not silent:
+        pbar = tqdm()
     for d in data:
         R = set([SPO(spo) for spo in extract_spoes(d['text'], model)])
         T = set([SPO(spo) for spo in d['spo_list']])
@@ -23,10 +24,11 @@ def evaluate(data, epoch):
         Y += len(R)
         Z += len(T)
         f1, precision, recall = 2 * X / (Y + Z), X / Y, X / Z
-        pbar.update()
-        pbar.set_description(
-            'f1: %.5f, precision: %.5f, recall: %.5f' % (f1, precision, recall)
-        )
+        if not silent:
+            pbar.update()
+            pbar.set_description(
+                'f1: %.5f, precision: %.5f, recall: %.5f' % (f1, precision, recall)
+            )
         s = json.dumps({
             'text': d['text'],
             'spo_list': list(T),
@@ -37,7 +39,8 @@ def evaluate(data, epoch):
             ensure_ascii = False,
             indent = 4)
         f.write(s + '\n')
-    pbar.close()
+    if not silent:
+        pbar.close()
     f.close()
     return f1, precision, recall
 

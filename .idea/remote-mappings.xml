@@ -4,6 +4,13 @@
     <list>
       <list>
         <remote-mappings server-id="python@1271a118-4a26-474b-8cc1-60ea50ff8213" />
+        <remote-mappings server-id="python@sftp://bureaux@172.30.2.148:22/home/bureaux/miniconda3/envs/Keras-base/bin/python">
+          <settings>
+            <list>
+              <mapping local-root="$PROJECT_DIR$" remote-root="/home/bureaux/Projects/GPLinker" />
+            </list>
+          </settings>
+        </remote-mappings>
       </list>
     </list>
   </component>

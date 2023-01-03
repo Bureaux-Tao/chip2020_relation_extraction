@@ -133,6 +133,20 @@ def search_layer(inputs, name, exclude_from=None):
                     return layer
 
 
+def align(tensor, axes, ndim=None):
+    """重新对齐tensor（批量版expand_dims）
+    axes：原来的第i维对齐新tensor的第axes[i]维；
+    ndim：新tensor的维度。
+    """
+    assert len(axes) == K.ndim(tensor)
+    assert ndim or min(axes) >= 0
+    ndim = ndim or max(axes) + 1
+    indices = [None] * ndim
+    for i in axes:
+        indices[i] = slice(None)
+    return tensor[indices]
+
+
 def sequence_masking(x, mask, value=0, axis=None):
     """为序列条件mask的函数
     mask: 形如(batch_size, seq_len)的0-1矩阵；
@@ -156,11 +170,8 @@ def sequence_masking(x, mask, value=0, axis=None):
         elif axis < 0:
             axis = K.ndim(x) + axis
         assert axis > 0, 'axis must be greater than 0'
-        for _ in range(axis - 1):
-            mask = K.expand_dims(mask, 1)
+        mask = align(mask, [0, axis], K.ndim(x))
         value = K.cast(value, K.dtype(x))
-        for _ in range(K.ndim(x) - K.ndim(mask)):
-            mask = K.expand_dims(mask, K.ndim(mask))
         x = x * mask + value * (1 - mask)
         if x_dtype == 'bool':
             x = K.cast(x, 'bool')
@@ -384,10 +395,13 @@ def recompute_grad(call):
 # 给旧版keras新增symbolic（装饰器），以兼容optimizers.py
 K.symbolic = getattr(K, 'symbolic', None) or symbolic
 
+# 给tf.keras补充上logsumexp
+K.logsumexp = getattr(K, 'logsumexp', None) or tf.math.reduce_logsumexp
+
 # 添加到 keras.backend 上，使其可以像 K.epsilon() 那样操作
 K.infinity = infinity
 K.set_infinity = set_infinity
-sys.modules['keras.backend'] = K
+sys.modules['tensorflow.keras.backend'] = K
 
 custom_objects = {
     'gelu_erf': gelu_erf,
@@ -398,6 +412,7 @@ custom_objects = {
     'leaky_relu': leaky_relu,
     'Sinusoidal': Sinusoidal,
     'multilabel_categorical_crossentropy': multilabel_categorical_crossentropy,
+    'initializer': keras.initializers.glorot_uniform,  # 就当是默认初始化方案吧
 }
 
 keras.utils.get_custom_objects().update(custom_objects)

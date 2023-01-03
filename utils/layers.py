@@ -4,7 +4,7 @@
 import numpy as np
 import tensorflow as tf
 from utils.backend import keras, K, is_tf_keras
-from utils.backend import sequence_masking
+from utils.backend import align, sequence_masking
 from utils.backend import recompute_grad
 from keras import initializers, activations
 from keras.layers import *
@@ -102,8 +102,8 @@ if (not is_tf_keras) or tf.__version__ < '1.15':
     class Node(NodeBase):
         """修改Node来修复keras下孪生网络的bug
         注意：这是keras的bug，并不是bert4keras的bug，但keras已经不更新了，
-              所以只好在这里进行修改。tf 1.15+自带的keras已经修改了这个
-              bug。
+             所以只好在这里进行修改。tf 1.15+自带的keras已经修改了这个
+             bug。
         """
         @property
         def arguments(self):
@@ -189,46 +189,126 @@ class Embedding(keras.layers.Embedding):
             return input_shape[:2] + (K.int_shape(self.embeddings)[0],)
 
 
-class BiasAdd(Layer):
-    """加上偏置项
+class ScaleOffset(Layer):
+    """简单的仿射变换层（最后一维乘上gamma向量并加上beta向量）
+    说明：1、具体操作为最后一维乘上gamma向量并加上beta向量；
+         2、如果直接指定scale和offset，那么直接常数缩放和平移；
+         3、hidden_*系列参数仅为有条件输入时(conditional=True)使用，
+            用于通过外部条件控制beta和gamma。
     """
+    def __init__(
+        self,
+        scale=True,
+        offset=True,
+        conditional=False,
+        hidden_units=None,
+        hidden_activation='linear',
+        hidden_initializer='glorot_uniform',
+        **kwargs
+    ):
+        super(ScaleOffset, self).__init__(**kwargs)
+        self.scale = scale
+        self.offset = offset
+        self.conditional = conditional
+        self.hidden_units = hidden_units
+        self.hidden_activation = activations.get(hidden_activation)
+        self.hidden_initializer = initializers.get(hidden_initializer)
+
     @integerize_shape
     def build(self, input_shape):
-        super(BiasAdd, self).build(input_shape)
-        output_dim = input_shape[-1]
-        self.bias = self.add_weight(
-            name='bias', shape=(output_dim,), initializer='zeros'
-        )
+        super(ScaleOffset, self).build(input_shape)
 
+        if self.conditional:
+            input_shape = input_shape[0]
+
+        if self.offset is True:
+            self.beta = self.add_weight(
+                name='beta', shape=(input_shape[-1],), initializer='zeros'
+            )
+        if self.scale is True:
+            self.gamma = self.add_weight(
+                name='gamma', shape=(input_shape[-1],), initializer='ones'
+            )
+
+        if self.conditional:
+
+            if self.hidden_units is not None:
+                self.hidden_dense = Dense(
+                    units=self.hidden_units,
+                    activation=self.hidden_activation,
+                    use_bias=False,
+                    kernel_initializer=self.hidden_initializer
+                )
+
+            if self.offset is not False and self.offset is not None:
+                self.beta_dense = Dense(
+                    units=input_shape[-1],
+                    use_bias=False,
+                    kernel_initializer='zeros'
+                )
+            if self.scale is not False and self.scale is not None:
+                self.gamma_dense = Dense(
+                    units=input_shape[-1],
+                    use_bias=False,
+                    kernel_initializer='zeros'
+                )
+
+    def compute_mask(self, inputs, mask=None):
+        if self.conditional:
+            return mask if mask is None else mask[0]
+        else:
+            return mask
+
+    @recompute_grad
     def call(self, inputs):
-        return K.bias_add(inputs, self.bias)
+        """如果带有条件，则默认以list为输入，第二个是条件
+        """
+        if self.conditional:
+            inputs, conds = inputs
+            if self.hidden_units is not None:
+                conds = self.hidden_dense(conds)
+            conds = align(conds, [0, -1], K.ndim(inputs))
 
+        if self.scale is not False and self.scale is not None:
+            gamma = self.gamma if self.scale is True else self.scale
+            if self.conditional:
+                gamma = gamma + self.gamma_dense(conds)
+            inputs = inputs * gamma
 
-class Scale(Layer):
-    """尺度缩放层
-    说明：选择自定义一个层而不是用Lambda层的原因是要存储scale参数。
-    """
-    def __init__(self, scale=1, **kwargs):
-        super(Scale, self).__init__(**kwargs)
-        self.scale = scale
+        if self.offset is not False and self.offset is not None:
+            beta = self.beta if self.offset is True else self.offset
+            if self.conditional:
+                beta = beta + self.beta_dense(conds)
+            inputs = inputs + beta
 
-    def call(self, inputs):
-        return inputs * self.scale
+        return inputs
+
+    def compute_output_shape(self, input_shape):
+        if self.conditional:
+            return input_shape[0]
+        else:
+            return input_shape
 
     def get_config(self):
         config = {
             'scale': self.scale,
+            'offset': self.offset,
+            'conditional': self.conditional,
+            'hidden_units': self.hidden_units,
+            'hidden_activation': activations.serialize(self.hidden_activation),
+            'hidden_initializer':
+                initializers.serialize(self.hidden_initializer),
         }
-        base_config = super(Scale, self).get_config()
+        base_config = super(ScaleOffset, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
 
 
 class Concatenate1D(Layer):
     """1维序列拼接层
     说明：本来该功能可以直接通过Concatenate层来实现，无奈Keras
-          自带的Concatenate层的compute_mask写得不合理，导致一个
-          带mask的序列与一个不带mask的序列拼接会报错，因此干脆
-          自己重写一个好了。
+         自带的Concatenate层的compute_mask写得不合理，导致一个
+         带mask的序列与一个不带mask的序列拼接会报错，因此干脆
+         自己重写一个好了。
     """
     def call(self, inputs):
         return K.concatenate(inputs, axis=1)
@@ -500,126 +580,151 @@ class MultiHeadAttention(Layer):
         return dict(list(base_config.items()) + list(config.items()))
 
 
-class LayerNormalization(Layer):
-    """(Conditional) Layer Normalization
-    hidden_*系列参数仅为有条件输入时(conditional=True)使用
+class GatedAttentionUnit(Layer):
+    """门控注意力单元
+    链接：https://arxiv.org/abs/2202.10447
+    介绍：https://kexue.fm/archives/8934
+    说明：没有加入加性相对位置编码，个人认为是不必要的；如果觉得有必要，
+         可以自行通过a_bias传入。
     """
     def __init__(
         self,
-        center=True,
-        scale=True,
-        epsilon=None,
-        conditional=False,
-        hidden_units=None,
-        hidden_activation='linear',
-        hidden_initializer='glorot_uniform',
+        units,
+        key_size,
+        activation='swish',
+        use_bias=True,
+        attention_dropout=None,
+        kernel_initializer='glorot_uniform',
         **kwargs
     ):
-        super(LayerNormalization, self).__init__(**kwargs)
-        self.center = center
-        self.scale = scale
-        self.conditional = conditional
-        self.hidden_units = hidden_units
-        self.hidden_activation = activations.get(hidden_activation)
-        self.hidden_initializer = initializers.get(hidden_initializer)
-        self.epsilon = epsilon or 1e-12
+        super(GatedAttentionUnit, self).__init__(**kwargs)
+        self.units = units
+        self.key_size = key_size
+        self.activation = activation
+        self.use_bias = use_bias
+        self.attention_dropout = attention_dropout
+        self.kernel_initializer = initializers.get(kernel_initializer)
+
+    @integerize_shape
+    def build(self, input_shape):
+        super(GatedAttentionUnit, self).build(input_shape)
+        hidden_size = input_shape[-1]
+        if isinstance(hidden_size, (list, tuple)):
+            hidden_size = input_shape[0][-1]
+        self.i_dense = Dense(
+            units=2 * self.units + self.key_size,
+            activation=self.activation,
+            use_bias=self.use_bias,
+            kernel_initializer=self.kernel_initializer
+        )
+        self.o_dense = Dense(
+            units=hidden_size,
+            use_bias=self.use_bias,
+            kernel_initializer=self.kernel_initializer
+        )
+        self.q_scaleoffset = ScaleOffset(offset=self.use_bias)
+        self.k_scaleoffset = ScaleOffset(offset=self.use_bias)
+
+    @recompute_grad
+    def call(self, inputs, mask=None, a_bias=None, p_bias=None):
+        if not isinstance(inputs, list):
+            inputs, mask = [inputs], [mask]
+        x, n = inputs[0], 1
+        mask = None if mask is None else mask[0]
+        if mask is None:
+            l = K.cast(K.shape(x)[1], K.floatx())
+        else:
+            l = K.sum(K.cast(mask, dtype=K.floatx()), axis=1)
+            l = K.maximum(l[:, None, None], 1)
+        if a_bias:
+            a_bias = inputs[n]
+            n += 1
+        # 投影变换
+        x = self.i_dense(x)
+        u, v, qk = tf.split(x, [self.units, self.units, self.key_size], axis=-1)
+        q, k = self.q_scaleoffset(qk), self.k_scaleoffset(qk)
+        # 加入RoPE
+        if p_bias == 'rotary':
+            cos_pos = K.repeat_elements(inputs[n][..., None, 1::2], 2, -1)
+            sin_pos = K.repeat_elements(inputs[n][..., None, ::2], 2, -1)
+            qk = K.stack([q, k], 2)
+            qk2 = K.stack([-qk[..., 1::2], qk[..., ::2]], 4)
+            qk2 = K.reshape(qk2, K.shape(qk))
+            qk = qk * cos_pos + qk2 * sin_pos
+            q, k = qk[:, :, 0], qk[:, :, 1]
+        # Attention
+        a = tf.einsum('bmd,bnd->bmn', q, k)
+        if a_bias is not None:
+            a = a + a_bias
+        a = sequence_masking(a, mask, 0, -1)
+        A = K.relu(a)**2 / (l * self.key_size)
+        if self.attention_dropout:
+            A = Dropout(self.attention_dropout)(A)
+        # 计算输出
+        o = self.o_dense(u * tf.einsum('bmn,bnd->bmd', A, v))
+        return o
 
     def compute_mask(self, inputs, mask=None):
-        if self.conditional:
-            masks = mask if mask is not None else []
-            masks = [m[None] for m in masks if m is not None]
-            if len(masks) == 0:
-                return None
-            else:
-                return K.all(K.concatenate(masks, axis=0), axis=0)
+        if isinstance(mask, list):
+            return mask[0]
         else:
             return mask
 
-    def build(self, input_shape):
-        super(LayerNormalization, self).build(input_shape)
-
-        if self.conditional:
-            shape = (input_shape[0][-1],)
-        else:
-            shape = (input_shape[-1],)
-
-        if self.center:
-            self.beta = self.add_weight(
-                shape=shape, initializer='zeros', name='beta'
-            )
-        if self.scale:
-            self.gamma = self.add_weight(
-                shape=shape, initializer='ones', name='gamma'
-            )
-
-        if self.conditional:
-
-            if self.hidden_units is not None:
-                self.hidden_dense = Dense(
-                    units=self.hidden_units,
-                    activation=self.hidden_activation,
-                    use_bias=False,
-                    kernel_initializer=self.hidden_initializer
-                )
-
-            if self.center:
-                self.beta_dense = Dense(
-                    units=shape[0], use_bias=False, kernel_initializer='zeros'
-                )
-            if self.scale:
-                self.gamma_dense = Dense(
-                    units=shape[0], use_bias=False, kernel_initializer='zeros'
-                )
-
-    @recompute_grad
-    def call(self, inputs):
-        """如果是条件Layer Norm，则默认以list为输入，第二个是condition
-        """
-        if self.conditional:
-            inputs, cond = inputs
-            if self.hidden_units is not None:
-                cond = self.hidden_dense(cond)
-            for _ in range(K.ndim(inputs) - K.ndim(cond)):
-                cond = K.expand_dims(cond, 1)
-            if self.center:
-                beta = self.beta_dense(cond) + self.beta
-            if self.scale:
-                gamma = self.gamma_dense(cond) + self.gamma
-        else:
-            if self.center:
-                beta = self.beta
-            if self.scale:
-                gamma = self.gamma
-
-        outputs = inputs
-        if self.center:
-            mean = K.mean(outputs, axis=-1, keepdims=True)
-            outputs = outputs - mean
-        if self.scale:
-            variance = K.mean(K.square(outputs), axis=-1, keepdims=True)
-            std = K.sqrt(variance + self.epsilon)
-            outputs = outputs / std * gamma
-        if self.center:
-            outputs = outputs + beta
-
-        return outputs
-
     def compute_output_shape(self, input_shape):
-        if self.conditional:
+        if isinstance(input_shape[0], (list, tuple)):
             return input_shape[0]
         else:
             return input_shape
 
     def get_config(self):
         config = {
-            'center': self.center,
-            'scale': self.scale,
+            'units': self.units,
+            'key_size': self.key_size,
+            'activation': activations.serialize(self.activation),
+            'use_bias': self.use_bias,
+            'attention_dropout': self.attention_dropout,
+            'kernel_initializer':
+                initializers.serialize(self.kernel_initializer),
+        }
+        base_config = super(GatedAttentionUnit, self).get_config()
+        return dict(list(base_config.items()) + list(config.items()))
+
+
+class LayerNormalization(ScaleOffset):
+    """(Conditional) Layer Normalization
+    """
+    def __init__(
+        self, zero_mean=True, unit_variance=True, epsilon=None, **kwargs
+    ):
+        super(LayerNormalization, self).__init__(**kwargs)
+        self.zero_mean = zero_mean
+        self.unit_variance = unit_variance
+        self.epsilon = epsilon or 1e-12
+
+    @recompute_grad
+    def call(self, inputs):
+        """如果是条件Layer Norm，则默认以list为输入，第二个是条件
+        """
+        if self.conditional:
+            inputs, conds = inputs
+
+        if self.zero_mean:
+            mean = K.mean(inputs, axis=-1, keepdims=True)
+            inputs = inputs - mean
+        if self.unit_variance:
+            variance = K.mean(K.square(inputs), axis=-1, keepdims=True)
+            inputs = inputs / K.sqrt(variance + self.epsilon)
+
+        if self.conditional:
+            inputs = [inputs, conds]
+
+        return super(LayerNormalization, self).call(inputs)
+
+    def get_config(self):
+        config = {
+            'zero_mean': self.zero_mean,
+            'unit_variance': self.unit_variance,
             'epsilon': self.epsilon,
-            'conditional': self.conditional,
-            'hidden_units': self.hidden_units,
-            'hidden_activation': activations.serialize(self.hidden_activation),
-            'hidden_initializer':
-                initializers.serialize(self.hidden_initializer),
         }
         base_config = super(LayerNormalization, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
@@ -1343,12 +1448,12 @@ class EfficientGlobalPointer(GlobalPointer):
     参考：https://kexue.fm/archives/8877
     """
     def build(self, input_shape):
-        self.dense_1 = Dense(
+        self.p_dense = Dense(
             units=self.head_size * 2,
             use_bias=self.use_bias,
             kernel_initializer=self.kernel_initializer
         )
-        self.dense_2 = Dense(
+        self.q_dense = Dense(
             units=self.heads * 2,
             use_bias=self.use_bias,
             kernel_initializer=self.kernel_initializer
@@ -1358,7 +1463,7 @@ class EfficientGlobalPointer(GlobalPointer):
     @recompute_grad
     def call(self, inputs, mask=None):
         # 输入变换
-        inputs = self.dense_1(inputs)
+        inputs = self.p_dense(inputs)
         qw, kw = inputs[..., ::2], inputs[..., 1::2]
         # RoPE编码
         if self.RoPE:
@@ -1373,7 +1478,7 @@ class EfficientGlobalPointer(GlobalPointer):
             kw = kw * cos_pos + kw2 * sin_pos
         # 计算内积
         logits = tf.einsum('bmd,bnd->bmn', qw, kw) / self.head_size**0.5
-        bias = tf.einsum('bnh->bhn', self.dense_2(inputs)) / 2
+        bias = tf.einsum('bnh->bhn', self.q_dense(inputs)) / 2
         logits = logits[:, None] + bias[:, ::2, None] + bias[:, 1::2, :, None]
         # 排除padding
         logits = sequence_masking(logits, mask, '-inf', 2)
@@ -1433,12 +1538,12 @@ class Loss(Layer):
 
 custom_objects = {
     'Embedding': Embedding,
-    'BiasAdd': BiasAdd,
-    'Scale': Scale,
+    'ScaleOffset': ScaleOffset,
     'Concatenate1D': Concatenate1D,
     'BatchSplit': BatchSplit,
     'BatchConcat': BatchConcat,
     'MultiHeadAttention': MultiHeadAttention,
+    'GatedAttentionUnit': GatedAttentionUnit,
     'LayerNormalization': LayerNormalization,
     'PositionEmbedding': PositionEmbedding,
     'SinusoidalPositionEmbedding': SinusoidalPositionEmbedding,
